@@ -160,7 +160,7 @@ To load a local version of mermaid, also use the `path` key to specify the locat
 mermaid:
   version: "10.1.0"
   # for (v10+)
-  path: "/assets/js/mermaid.esm.min.mjs"
+  path: "/js/mermaid.esm.min.mjs"
   # for (<v10):
   # path: "/assets/js/mermaid.min.js"
   # Note: copy both `mermaid.esm.min.mjs` (v10+) or `mermaid.min.js` (<v10) and the associated

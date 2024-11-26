@@ -1,6 +1,3 @@
----
-layout: null
----
 (function (jtd, undefined) {
 
 // Event handling
@@ -70,7 +67,7 @@ function initNav() {
 }
 
 // The <head> element is assumed to include the following stylesheets:
-// - a <link> to /assets/css/just-the-docs-head-nav.css,
+// - a <link> to /css/just-the-docs-head-nav.css,
 //             with id 'jtd-head-nav-stylesheet'
 // - a <style> containing the result of _includes/css/activation.scss.liquid.
 // To avoid relying on the order of stylesheets (which can change with HTML
@@ -94,7 +91,7 @@ function disableHeadStyleSheets() {
 
 function initSearch() {
   var request = new XMLHttpRequest();
-  request.open('GET', '{{ "assets/js/search-data.json" | relative_url }}', true);
+  request.open('GET', '{{ "/js/search-data.json" | url }}', true);
 
   request.onload = function(){
     if (request.status >= 200 && request.status < 400) {
@@ -493,7 +490,7 @@ jtd.getTheme = function() {
 
 jtd.setTheme = function(theme) {
   var cssFile = document.querySelector('[rel="stylesheet"]');
-  cssFile.setAttribute('href', '{{ "assets/css/just-the-docs-" | relative_url }}' + theme + '.css');
+  cssFile.setAttribute('href', '{{ "css/just-the-docs-" | url }}' + theme + '.css');
 }
 
 // Note: pathname can have a trailing slash on a local jekyll server
