@@ -1,9 +1,9 @@
 @charset "UTF-8";
 
-// Styles for rendered markdown in the .main-content container
+// Styles for rendered markdown in the .content-body container
 // stylelint-disable selector-no-type, max-nesting-depth, selector-max-compound-selectors, selector-max-type, selector-max-specificity, selector-max-id
 
-.main-content {
+.content-body {
   line-height: $content-line-height;
 
   ol,
@@ -213,7 +213,6 @@
     + table,
     + .table-wrapper,
     + .code-example,
-    + .highlighter-rouge,
     + .sectionbody .listingblock {
       margin-top: 1em;
     }

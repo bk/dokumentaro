@@ -1,5 +1,48 @@
 nav: auto
 toc: true
+#pandoc: true
 site:
   name: Dokumentaro
+  # title -- mostly just an alternative to site.name
+  base_url: https://dokumentaro.baldr.net
+  lang: en
+  locale: "en_US.utf8"
   nav_enabled: true
+  heading_anchors: true
+  back_to_top: true
+  back_to_top_text: Back to top
+  color_scheme: default
+  enable_copy_code_button: true
+  last_edit_time_format: "%Y-%m-%d %H:%M"
+  search_enabled: true
+  # Other settings:
+  # aux_links -- object
+  # aux_links_new_tab -- bool
+  # favicon_ico
+  # footer_content
+  # ga_tracking
+  # ga_tracking_anonymize
+  # gh_edit_link
+  # gh_edit_link_text
+  # gh_edit_view_mode
+  # logo
+  # mermaid
+  # nav_external_links
+  # nav_external_links_new_tab
+  # nav_footer_text
+  # search -- object: button, rel_url, focus_shortcut_key, preview_words_before, preview_words_after
+  # search_tokenizer_separator
+# For code highlighting, either set pandoc:true or use the following:
+markdown_extensions:
+  - pymdownx.extra
+  - sane_lists
+  - toc
+  - pymdownx.superfences
+  - pymdownx.highlight
+markdown_extension_configs:
+  pymdownx.highlight:
+    use_pygments: true
+  toc:
+    toc_depth: "2-3"
+cleanup_commands:
+  - "npx -y pagefind --site htdocs"

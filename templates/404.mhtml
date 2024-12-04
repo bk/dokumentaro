@@ -8,5 +8,5 @@ exclude_from_search = True
 <%block name="content">
 <h1 class="page-title">Page not found</h1>
 
-<p>The page you requested could not be found. Try using the navigation ${ '' if site.search_disabled else 'or search ' }to find what you're looking for or go to this <a href="${ '/' | url }">site's home page</a>.</p>
+<p>The page you requested could not be found. Try using the navigation ${ 'or search ' if site.search_enabled else '' }to find what you're looking for or go to this <a href="${ '/' | url }">site's home page</a>.</p>
 </%block>

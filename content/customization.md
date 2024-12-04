@@ -4,13 +4,8 @@ nav_order: 6
 ---
 
 # Customization
-{: .no_toc }
 
-## Table of contents
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
+[TOC]
 
 ---
 
@@ -20,8 +15,7 @@ Just the Docs supports two color schemes: light (default), and dark.
 
 To enable a color scheme, set the `color_scheme` parameter in your site's `_config.yml` file:
 
-### Example: preview dark color scheme
-{: .no_toc .text-delta }
+### Example: preview dark color scheme {: .no_toc .text-delta }
 
 ```yaml
 # Color scheme supports "light" (default) and "dark"
@@ -33,19 +27,18 @@ color_scheme: dark
 <script>
 const toggleDarkMode = document.querySelector('.js-toggle-dark-mode');
 
-jtd.addEvent(toggleDarkMode, 'click', function(){
-  if (jtd.getTheme() === 'dark') {
-    jtd.setTheme('light');
+d9o.addEvent(toggleDarkMode, 'click', function(){
+  if (d9o.getTheme() === 'dark') {
+    d9o.setTheme('default');
     toggleDarkMode.textContent = 'Preview dark color scheme';
   } else {
-    jtd.setTheme('dark');
+    d9o.setTheme('dark');
     toggleDarkMode.textContent = 'Return to the light side';
   }
 });
 </script>
 
-### deprecated: `legacy_light`
-{: .d-inline-block .no_toc }
+### deprecated: `legacy_light` {: .d-inline-block .no_toc }
 
 New (v0.4.2)
 {: .label .label-green }

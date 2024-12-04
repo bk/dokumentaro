@@ -21,7 +21,7 @@
         % if section_active or it.level == 0:
           ${ _expander_button(it, section_active) }
         % endif
-        <a href="${ it.url or '#' }"${ ' class="active"' if url_active else '' }>${ it.title }</a>
+        <a href="${ it.url or '#' }" class="nav-list-link${ ' active' if url_active else '' }">${ it.title }</a>
         % if it.is_section and it.children and it != navlist:
           ${ pages_nav(it) }
         % endif

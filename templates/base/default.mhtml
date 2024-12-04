@@ -1,6 +1,22 @@
 <%!
+import re
 main_image = None
 nav_enabled = True
+
+def _wrap_tables(s):
+    s = s.replace('<table', '<div class="table-wrapper"><table')
+    s = s.replace('</table>', '</table></div>')
+    return s
+
+def _toc2ol(m):
+    s = m.group(1)
+    s = s.replace('<ul', '<ol').replace('</ul', '</ol')
+    hdr = '<h2 class="no_toc text-delta" id="x-autotoc">Table of contents</h2>'
+    return hdr + '<div class="toc">' + s + '</div>'
+
+def _tocfilter(s):
+    # we want ordered list in TOC, not unordered
+    return re.sub(r'<div class="toc">(.*?)</div>', _toc2ol, s, flags=re.S)
 %>\
 <%namespace import="seo" file="/lib/seo.mc" />\
 <!DOCTYPE html>
@@ -27,7 +43,7 @@ nav_enabled = True
   <%block name="inline_css"></%block>
   <%block name="inline_js"></%block>
 </head>
-<body>
+<body class="${ site.color_scheme or 'default' }">
   <a class="skip-to-main" href="#main-content">Skip to main content</a>
   <%include file="icons/icons.mc" />
   % if self.attr.nav_enabled and (page.nav_enabled or (site.nav_enabled and 'nav_enabled' not in page)):
@@ -38,24 +54,16 @@ nav_enabled = True
     <div class="main-content-wrap">
       <%include file="breadcrumbs.mc" />
       <div id="main-content" class="main-content">
-        ## NOTE: site.heading_anchors is handled by javascript,
-        ## not by pre-filtering the HTML.
-        % if site.heading_anchors:
-          <script>
-            document.addEventListener('DOMContentLoaded', function(){
-              let anchor_html = '<svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg">';
-              add_anchors(anchor_html, 'anchor-headln');
-            });
-          </script>
-        % endif
         <main>
-          <%block name="content">
-            % if CONTENT:
-              ${ CONTENT }
-            % else:
-              ${ next.body() }
-            % endif
-          </%block>
+          <div class="content-body" data-pagefind-body>
+            <%block name="content">
+              % if page:
+                ${ CONTENT | _wrap_tables, _tocfilter }
+              % else:
+                ${ next.body() }
+              % endif
+            </%block>
+          </div>
           <% page_in_nav = nav.find_item(url=SELF_URL, normalize=url) %>
           % if page_in_nav and page_in_nav.children:
             <hr>
