@@ -1,6 +1,6 @@
 ---
 title: T
-parent: S
+parent: ys
 ancestor: Y
 ---
 # T

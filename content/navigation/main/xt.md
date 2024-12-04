@@ -1,6 +1,6 @@
 ---
 title: T
-parent: S
+parent: xs
 grand_parent: X
 ---
 # T

@@ -1,0 +1,2 @@
+<%inherit file="default.mhtml" />
+<%! nav_enabled = False %>

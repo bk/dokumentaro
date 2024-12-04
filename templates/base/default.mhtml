@@ -1,0 +1,83 @@
+<%!
+main_image = None
+nav_enabled = True
+%>\
+<%namespace import="seo" file="/lib/seo.mc" />\
+<!DOCTYPE html>
+<html lang="${ site.lang or 'en' }">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="${ '/css/d9o-{}.css'.format(site.color_scheme or 'default') | fingerprint,url }">
+  <script src="${ '/js/d9o.js' | fingerprint,url }"></script>
+  ## TODO: nav_activation CSS rules (maybe)
+  <%include file="ga_tracking.mc" />
+  ##% if site.search_enabled:
+    ## TODO: use pagefind instead
+    ##<script src="${ '/js/vendor/lunr.min.js' | url }"></script>
+  ##% endif
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%include file="favicon.mc" />
+  % if page:
+    ${ seo(site, page, url=SELF_URL) }
+  % else:
+    ${ seo(site, page=None, url=SELF_URL, title=self.page_title, img=self.attr.main_image) }
+  % endif
+  <%include file="custom_head.mc" />
+  ## TODO: frontmatter-driven extra css (?)
+  <%block name="inline_css"></%block>
+  <%block name="inline_js"></%block>
+</head>
+<body>
+  <a class="skip-to-main" href="#main-content">Skip to main content</a>
+  <%include file="icons/icons.mc" />
+  % if self.attr.nav_enabled and (page.nav_enabled or (site.nav_enabled and 'nav_enabled' not in page)):
+    <%include file="sidebar.mc" />
+  % endif
+  <div class="main" id="top">
+    <%include file="main_header.mc" />
+    <div class="main-content-wrap">
+      <%include file="breadcrumbs.mc" />
+      <div id="main-content" class="main-content">
+        ## NOTE: site.heading_anchors is handled by javascript,
+        ## not by pre-filtering the HTML.
+        % if site.heading_anchors:
+          <script>
+            document.addEventListener('DOMContentLoaded', function(){
+              let anchor_html = '<svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg">';
+              add_anchors(anchor_html, 'anchor-headln');
+            });
+          </script>
+        % endif
+        <main>
+          <%block name="content">
+            % if CONTENT:
+              ${ CONTENT }
+            % else:
+              ${ next.body() }
+            % endif
+          </%block>
+          <% page_in_nav = nav.find_item(url=SELF_URL, normalize=url) %>
+          % if page_in_nav and page_in_nav.children:
+            <hr>
+            <%include file="toc_heading_custom.mc" />
+            <ul class="child-pages-list">
+              % for child in page_in_nav.children:
+                <li><a href="${ child.url or '#' }">${ child.title }</a></li>
+              % endfor
+            </ul>
+          % endif
+        </main>
+        <%include file="footer.mc" />
+      </div>
+    </div>
+    % if site.search_enabled:
+      <%include file="search_footer.mc" />
+    % endif
+  </div>
+
+  % if site.mermaid:
+    <%include file="mermaid.mc" />
+  % endif
+</body>
+</html>
+<%def name="page_title()">Default</%def>\

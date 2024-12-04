@@ -1,0 +1,13 @@
+<%inherit file="base/default.mhtml" />
+<%!
+def _wrap_tables(s):
+    s = s.replace('<table', '<div class="table-wrapper"><table')
+    s = s.replace('</table>', '</table></div>')
+    return s
+%>
+
+<%def name="page_title()">${ page.title }</%def>
+
+<%block name="content">
+  ${ CONTENT | _wrap_tables }
+</%block>
