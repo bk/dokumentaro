@@ -8,12 +8,12 @@ nav_order: 99
 <script>
 const toggleDarkMode = document.querySelector('.js-toggle-dark-mode');
 
-jtd.addEvent(toggleDarkMode, 'click', function(){
-  if (jtd.getTheme() === 'dark') {
-    jtd.setTheme('light');
+d9o.addEvent(toggleDarkMode, 'click', function(){
+  if (d9o.getTheme() === 'dark') {
+    d9o.setTheme('light');
     toggleDarkMode.textContent = 'Preview dark color scheme';
   } else {
-    jtd.setTheme('dark');
+    d9o.setTheme('dark');
     toggleDarkMode.textContent = 'Return to the light side';
   }
 });
@@ -21,7 +21,7 @@ jtd.addEvent(toggleDarkMode, 'click', function(){
 
 Text can be **bold**, _italic_, or ~~strikethrough~~.
 
-[Link to another page]({{site.baseurl}}/).
+[Link to another page](/).
 
 There should be whitespace between paragraphs.
 
@@ -106,49 +106,49 @@ even when it comes at the beginning](.) of the line.
 
 Some text
 
-{:style="counter-reset:none"}
 1.  Item three
+{:style="counter-reset:none"}
 1.  Item four
 
 ### And an ordered list starting from 42:
 
-{:style="counter-reset:step-counter 41"}
 1.  Item 42
+{:style="counter-reset:step-counter 41"}
 1.  Item 43
 1.  Item 44
 
 ### And a nested list:
 
 - level 1 item
-  - level 2 item
-  - level 2 item
-    - level 3 item
-    - level 3 item
+    - level 2 item
+    - level 2 item
+        - level 3 item
+        - level 3 item
 - level 1 item
-  - level 2 item
-  - level 2 item
-  - level 2 item
+    - level 2 item
+    - level 2 item
+    - level 2 item
 - level 1 item
-  - level 2 item
-  - level 2 item
+    - level 2 item
+    - level 2 item
 - level 1 item
 
 ### Nesting an ol in ul in an ol
 
 - level 1 item (ul)
-  1. level 2 item (ol)
-  1. level 2 item (ol)
-    - level 3 item (ul)
-    - level 3 item (ul)
+    1. level 2 item (ol)
+    1. level 2 item (ol)
+         - level 3 item (ul)
+         - level 3 item (ul)
 - level 1 item (ul)
-  1. level 2 item (ol)
-  1. level 2 item (ol)
-    - level 3 item (ul)
-    - level 3 item (ul)
-  1. level 4 item (ol)
-  1. level 4 item (ol)
-    - level 3 item (ul)
-    - level 3 item (ul)
+    1. level 2 item (ol)
+    1. level 2 item (ol)
+        - level 3 item (ul)
+        - level 3 item (ul)
+    1. level 4 item (ol)
+    1. level 4 item (ol)
+        - level 3 item (ul)
+        - level 3 item (ul)
 - level 1 item (ul)
 
 ### And a task list
@@ -160,8 +160,8 @@ Some text
 ### Nesting task lists
 
 - [ ] level 1 item (task)
-   - [ ] level 2 item (task)
-   - [ ] level 2 item (task)
+    - [ ] level 2 item (task)
+    - [ ] level 2 item (task)
 - [ ] level 1 item (task)
 - [ ] level 1 item (task)
 
@@ -198,19 +198,25 @@ I'm a label
 
 blue
 {: .label .label-blue }
+
 green
 {: .label .label-green }
+
 purple
 {: .label .label-purple }
+
 yellow
 {: .label .label-yellow }
+
 red
 {: .label .label-red }
 
 **bold**
 {: .label }
+
 *italic*
 {: .label }
+
 ***bold + italic***
 {: .label }
 
@@ -258,7 +264,7 @@ Term2
 
 ### More code
 
-```python{% raw %}
+```python
 def dump_args(func):
     "This decorator dumps out the arguments passed to a function before calling it"
     argnames = func.func_code.co_varnames[:func.func_code.co_argcount]
@@ -291,7 +297,7 @@ class conditions(object):
 
         self.__precondition  = pre
         self.__postcondition = post
-{% endraw %}```
+```
 
 ```
 Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
@@ -321,7 +327,7 @@ The following uses the [`<details>`](https://docs.github.com/en/get-started/writ
 This is content inside a `<details>` dropdown.
 
 - [ ] Apples
-- [ ] Oranges
+- [x] Oranges
 - [ ] Milk
 
 </details>
