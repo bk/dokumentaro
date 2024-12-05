@@ -18,10 +18,13 @@ code {
   }
 }
 // Mermaid diagram code blocks should be left unstyled.
-code.language-mermaid {
-  padding: 0;
+pre.mermaid {
   background-color: inherit;
-  border: 0;
+  > code {
+    padding: 0;
+    border: 0;
+    background-color: inherit;
+  }
 }
 
 div.highlight {

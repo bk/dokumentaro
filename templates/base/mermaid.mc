@@ -3,11 +3,11 @@
  % if site.mermaid.path:
   import mermaid from '${ site.mermaid.path | url }';
 % else:
-  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@${ site.mermaid.version }/dist/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@${ site.mermaid.version or '11.4.1' }/dist/mermaid.esm.min.mjs';
 % endif
   var config = <%include file="mermaid_config.js" />;
   mermaid.initialize(config);
   mermaid.run({
-    querySelector: '.language-mermaid',
+    querySelector: '.mermaid code',
   });
 </script>

@@ -15,6 +15,8 @@ site:
   enable_copy_code_button: true
   last_edit_time_format: "%Y-%m-%d %H:%M"
   search_enabled: true
+  mermaid:
+    version: 11.4.1
   # Other settings:
   # aux_links -- object
   # aux_links_new_tab -- bool
@@ -32,19 +34,26 @@ site:
   # nav_footer_text
   # search -- object: button, rel_url, focus_shortcut_key, preview_words_before, preview_words_after
   # search_tokenizer_separator
-# For code highlighting, either set pandoc:true or use the following:
 markdown_extensions:
-  - pymdownx.extra
   - sane_lists
   - toc
+  - pymdownx.extra
   - pymdownx.tilde
   - pymdownx.caret
+  - pymdownx.blocks.admonition
   - pymdownx.superfences
   - pymdownx.highlight
   - pymdownx.tasklist
+# For the mermaid config, see https://facelessuser.github.io/pymdown-extensions/extras/mermaid/
 markdown_extension_configs:
   pymdownx.highlight:
     use_pygments: true
+  pymdownx.superfences:
+    preserve_tabs: true
+    custom_fences:
+      - name: mermaid
+        class: mermaid
+        format: !!python/name:pymdownx.superfences.fence_code_format
   toc:
     toc_depth: "2-3"
 cleanup_commands:

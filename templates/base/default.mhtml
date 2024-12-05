@@ -82,7 +82,6 @@ def _tocfilter(s):
       <%include file="search_footer.mc" />
     % endif
   </div>
-
   % if site.mermaid:
     <%include file="mermaid.mc" />
   % endif
