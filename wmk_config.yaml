@@ -54,6 +54,30 @@ markdown_extension_configs:
       - name: mermaid
         class: mermaid
         format: !!python/name:pymdownx.superfences.fence_code_format
+  pymdownx.blocks.admonition:
+    types:
+      # Defaults: note, attention, caution, danger, error, tip, hint, warning.
+      # Adding abstract, bug, example, failure, important, info, new,
+      # question, quote, success.
+      - note
+      - attention
+      - caution
+      - danger
+      - error
+      - tip
+      - hint
+      - warning
+      - abstract
+      - bug
+      - example
+      - failure
+      - important
+      - name: info
+        title: "Information"
+      - new
+      - question
+      - quote
+      - success
   toc:
     toc_depth: "2-3"
 cleanup_commands:
