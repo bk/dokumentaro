@@ -1,7 +1,9 @@
 <%!
 import re
+
 main_image = None
 nav_enabled = True
+exclude_from_search = False
 
 def _wrap_tables(s):
     s = s.replace('<table', '<div class="table-wrapper"><table')
@@ -25,12 +27,10 @@ def _tocfilter(s):
   <meta charset="UTF-8">
   <link rel="stylesheet" href="${ '/css/d9o-{}.css'.format(site.color_scheme or 'default') | fingerprint,url }">
   <script src="${ '/js/d9o.js' | fingerprint,url }"></script>
-  ## TODO: nav_activation CSS rules (maybe)
   <%include file="ga_tracking.mc" />
-  ##% if site.search_enabled:
-    ## TODO: use pagefind instead
-    ##<script src="${ '/js/vendor/lunr.min.js' | url }"></script>
-  ##% endif
+  % if site.search_enabled:
+    <link rel="stylesheet" href="${ '/pagefind/pagefind-ui.css' | url }?t=${ int(site.build_time.timestamp()) }">
+  % endif
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <%include file="favicon.mc" />
   % if page:
@@ -55,7 +55,7 @@ def _tocfilter(s):
       <%include file="breadcrumbs.mc" />
       <div id="main-content" class="main-content">
         <main>
-          <div class="content-body" data-pagefind-body>
+          <div class="content-body"${ '' if page.exclude_from_search or self.attr.exclude_from_search else ' data-pagefind-body' }>
             <%block name="content">
               % if page:
                 ${ CONTENT | _wrap_tables, _tocfilter }

@@ -1,9 +1,17 @@
 <% placeholder = site.search_placeholder or 'Search {}'.format(site.name or site.title or 'this website') %>
 
 <div class="search" role="search">
-  <div class="search-input-wrap">
-    <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="${ placeholder }" aria-label="${ placeholder }" autocomplete="off">
-    <label for="search-input" class="search-label"><svg viewBox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label>
-  </div>
-  <div id="search-results" class="search-results"></div>
+  <script src="${ '/pagefind/pagefind-ui.js' | url }"></script>
+  <div id="search" class="results"></div>
 </div>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    new PagefindUI({
+      element: "#search",
+      showSubResults: true,
+      showImages: false
+    });
+  });
+  ## TODO: MutationObserver() for whether results are being displayed,
+  ## for setting overlay on the background.
+</script>
