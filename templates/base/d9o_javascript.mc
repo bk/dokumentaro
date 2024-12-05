@@ -7,4 +7,4 @@
     headingAnchorsHtml: '<svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg>'
   };
 </script>
-<script src="${ '/js/d9o.js' | fingerprint,url }" defer></script>
+<script src="${ '/js/d9o.js' | fingerprint,url }"></script>
