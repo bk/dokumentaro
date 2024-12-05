@@ -83,7 +83,7 @@
   @include mq(md) {
     display: flex;
     justify-content: space-between;
-    height: $header-height;
+    min-height: $header-height;
   }
 }
 
