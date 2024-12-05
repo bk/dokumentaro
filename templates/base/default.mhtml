@@ -26,7 +26,7 @@ def _tocfilter(s):
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="${ '/css/d9o-{}.css'.format(site.color_scheme or 'default') | fingerprint,url }">
-  <script src="${ '/js/d9o.js' | fingerprint,url }"></script>
+  <%include file="d9o_javascript.mc" />
   <%include file="ga_tracking.mc" />
   % if site.search_enabled:
     <link rel="stylesheet" href="${ '/pagefind/pagefind-ui.css' | url }?t=${ int(site.build_time.timestamp()) }">
