@@ -18,9 +18,7 @@
         section_active = url_active or it.descendant_is_url(SELF_URL, cleanurl)
       %>
       <li class="nav-list-item${ ' active' if section_active else '' }">
-        % if section_active or it.level == 0:
-          ${ _expander_button(it, section_active) }
-        % endif
+        ${ _expander_button(it, section_active) }
         <a href="${ it.url or '#' }" class="nav-list-link${ ' active' if url_active else '' }">${ it.title }</a>
         % if it.is_section and it.children and it != navlist:
           ${ pages_nav(it) }
