@@ -37,8 +37,11 @@ markdown_extensions:
   - pymdownx.extra
   - sane_lists
   - toc
+  - pymdownx.tilde
+  - pymdownx.caret
   - pymdownx.superfences
   - pymdownx.highlight
+  - pymdownx.tasklist
 markdown_extension_configs:
   pymdownx.highlight:
     use_pygments: true
