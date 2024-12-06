@@ -15,6 +15,7 @@ site:
   enable_copy_code_button: true
   last_edit_time_format: "%Y-%m-%d %H:%M"
   search_enabled: true
+  search_placeholder: Search Dokumentaro
   mermaid:
     version: 11.4.1
   # Other settings:

@@ -192,7 +192,6 @@ d9o.onReady(function(){
     activateNav();
     scrollNav();
   }
-  window.console.log('ahem');
   addAnchors();
 });
 
