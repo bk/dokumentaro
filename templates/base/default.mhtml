@@ -58,6 +58,9 @@ def _tocfilter(s):
           <div class="content-body"${ '' if page.exclude_from_search or self.attr.exclude_from_search else ' data-pagefind-body' }>
             <%block name="content">
               % if page:
+                % if page.auto_heading and not CONTENT.startswith('<h1'):
+                    <h1 class="auto-heading">${ page.title}</h1>
+                % endif
                 ${ CONTENT | _wrap_tables, _tocfilter }
               % else:
                 ${ next.body() }
