@@ -22,11 +22,6 @@ When you have [configured]({% link docs/configuration.md %}#callouts) the  `colo
 [^postfix]:
     You can put the callout markup either before or after its content.
 
-<style>
-.admonition { background: #eee; }
-.admonition-title { font-weight: bold; }
-</style>
-
 ## An untitled callout {: .no_toc .text-delta }
 
 ```markdown
