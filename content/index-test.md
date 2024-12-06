@@ -220,6 +220,38 @@ red
 ***bold + italic***
 {: .label }
 
+### Callouts (i.e. admonitions)
+
+The following types are supported out of the box: quote, note, info, abstract, question, hint, example, caution, warning, attention, important, danger, error, bug, failure, new, success, tip. Other types can be defined if desired by writing a small bit of CSS and altering the markdown extension config in `wmk_config.yaml`.
+
+/// quote
+This is a quote. It has the fallback appearance (grayish).
+///
+
+/// note
+This is a note. Its dominant color is blue. The same applies to info and abstract.
+///
+
+/// question
+This is a question. Its dominant color is purple. The same applies to hint and example.
+///
+
+/// warning
+This is a warning. It is yellow. The same applies to the types caution, attention and important.
+///
+
+/// error
+This is an error. It is red. The same applies to danger, bug and failure.
+
+This is the second paragraph giving the error details.
+///
+
+/// tip
+This is a tip. It is green. The same applies to new and success.
+///
+
+
+
 ### Definition lists can be used with HTML syntax.
 
 <dl>
