@@ -13,9 +13,9 @@
 
     % if site.last_edit_timestamp or site.gh_edit_link:
       <div class="d-flex mt-2">
-        % if site.last_edit_timestamp and site.last_edit_time_format and page.modified_date:
+        % if site.last_edit_timestamp and site.last_edit_time_format and MTIME:
           <p class="text-small text-grey-dk-000 mb-0 mr-2">
-            Page last modified: <span class="d-inline-block">${ page.modified_date | date(format=site.last_edit_time_format) }</span>.
+            Page last modified: <span class="d-inline-block">${ (page.modified_date or MTIME) | date(fmt=site.last_edit_time_format) }</span>.
           </p>
         % endif
         % if site.gh_edit_link and site.gh_edit_link_text and site.gh_edit_repository and site.gh_edit_branch and site.gh_edit_view_mode:
