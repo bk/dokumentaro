@@ -1,6 +1,9 @@
 ---
 title: Search
 nav_order: 7
+tags:
+  - configuration
+  - search
 ---
 
 # Search

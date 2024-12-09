@@ -2,6 +2,8 @@
 title: Callouts
 parent: UI Components
 nav_order: 7
+tags:
+  - components
 ---
 
 # Callouts {: .d-inline-block }

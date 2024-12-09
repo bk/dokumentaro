@@ -1,6 +1,9 @@
 ---
 title: Configuration
 nav_order: 2
+tags:
+  - appearance
+  - configuration
 ---
 
 # Configuration

@@ -2,6 +2,9 @@
 title: Auxiliary Links
 parent: Navigation
 nav_order: 2
+tags:
+  - navigation
+  - configuration
 ---
 
 # Auxiliary Links

@@ -2,6 +2,8 @@
 title: Typography
 parent: UI Components
 nav_order: 1
+tags:
+  - appearance
 ---
 
 # Typography

@@ -1,6 +1,9 @@
 ---
 title: Customization
 nav_order: 6
+tags:
+  - appearance
+  - configuration
 ---
 
 # Customization

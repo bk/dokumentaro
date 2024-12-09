@@ -2,6 +2,9 @@
 title: Main Navigation
 parent: Navigation
 nav_order: 1
+tags:
+  - navigation
+  - configuration
 ---
 
 # Main Navigation
