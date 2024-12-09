@@ -1,7 +1,7 @@
 ---
 title: Tags
 date: 2024-12-06
-layout: taxonomy_list
+layout: taxonomy
 nav_order: 20
 TAXONOMY:
   taxon: ['tags', 'tag']
@@ -9,10 +9,6 @@ TAXONOMY:
   name: tags
   name_singular: tag
   name_plural: tags
-  detail_template: base/taxonomy_single.mhtml
-  # List and detail settings. The pagination settings will be standard and
-  # documented, but it is actually up to the list template whether they are
-  # respected.
   # Other settings will be non-standard and entirely up to the template/theme.
   list_settings:
     pagination: false

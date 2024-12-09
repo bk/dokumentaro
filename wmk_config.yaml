@@ -16,11 +16,24 @@ site:
   last_edit_time_format: "%Y-%m-%d %H:%M"
   search_enabled: true
   search_placeholder: Search Dokumentaro
+  tags_enabled: true
+  #tag_urls:
+  #  list: '/tags/'
+  #  item: '/tags/{}/'
+  aux_links:
+    - title: Mbl
+      url: https://www.mbl.is/frettir/
+  aux_links_new_tab: true
   mermaid:
     version: 11.4.1
+  nav_external_links:
+    - title: wmk on github
+      url: https://github.com/bk/wmk
+    - title: wmk documentation
+      url: https://wmk.baldr.net/
+  nav_external_links_new_tab: true
+  last_edit_timestamp: true
   # Other settings:
-  # aux_links -- object
-  # aux_links_new_tab -- bool
   # favicon_ico
   # footer_content
   # ga_tracking
@@ -30,8 +43,6 @@ site:
   # gh_edit_view_mode
   # logo
   # mermaid
-  # nav_external_links
-  # nav_external_links_new_tab
   # nav_footer_text
   # search -- object: button, rel_url, focus_shortcut_key, preview_words_before, preview_words_after
   # search_tokenizer_separator
