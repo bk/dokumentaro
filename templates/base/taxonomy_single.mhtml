@@ -1,0 +1,41 @@
+<%inherit file="default.mhtml" />
+<%namespace file="./taxonomy_list.mhtml" import="_prevnext" />
+
+<%block name="page_title">${
+  (page.TAXONOMY.name_singular or page.TAXONOMY.name or page.title).title() }: ${
+  TAXON['name']
+}</%block>
+
+<%block name="content">
+  <%
+    cnf = page.TAXONOMY.detail_settings
+    curpage = 1
+    if cnf.pagination:
+        page_size = cnf.page_size or 20
+        curpage = context.get('_page', 1)
+        chunks, page_urls = TAXON['items'].paginate(page_size, context)
+    else:
+        chunks = [TAXON['items']]
+    txname = (page.TAXONOMY.name_singular or page.TAXONOMY.name or page.title).title()
+  %>
+  % if curpage > 1:
+    <h1>${ txname }: ${ TAXON['name'] }, page ${ curpage }</h1>
+  % else:
+    <h1>${ txname }: ${ TAXON['name'] }</h1>
+  % endif
+
+  % if cnf.relationship_description:
+    <p>The following pages ${ cnf.relationship_description } <strong>${ TAXON['name'] }</strong>:
+  % endif
+
+  <ul>
+  % for it in chunks[curpage-1]:
+    <% pg = it['data']['page'] %>
+    <li><a href="${ it['data']['SELF_URL'] }">${ pg.title }</a></li>
+  % endfor
+  </ul>
+
+  % if len(chunks) > 1:
+    ${ _prevnext(len(chunks), curpage, page_urls) }
+  % endif
+</%block>

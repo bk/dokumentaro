@@ -34,7 +34,7 @@ def _tocfilter(s):
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <%include file="favicon.mc" />
   % if page:
-    ${ seo(site, page, url=SELF_URL) }
+    ${ seo(site, page, url=SELF_URL, title=self.page_title) }
   % else:
     ${ seo(site, page=None, url=SELF_URL, title=self.page_title, img=self.attr.main_image) }
   % endif
@@ -67,6 +67,7 @@ def _tocfilter(s):
               % endif
             </%block>
           </div>
+          <%include file="page_tags.mc" />
           <% page_in_nav = nav.find_item(url=SELF_URL, normalize=url) %>
           % if page_in_nav and page_in_nav.children:
             <hr>
@@ -90,4 +91,4 @@ def _tocfilter(s):
   % endif
 </body>
 </html>
-<%def name="page_title()">Default</%def>\
+<%def name="page_title()">${ page.title if page else 'Default' }</%def>\
