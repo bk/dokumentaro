@@ -1,12 +1,20 @@
-% if page and page.tags and site.tags_enabled and not page.TAXONOMY and taxonomies:
+<%
+tx_tags = CACHE.get('taxonomies__tags', None)
+if site.tags_enabled and page and 'taxonomies' not in CACHE:
+    # We only want to call get_used_taxonomies once per build
+    taxonomies = MDCONTENT.get_used_taxonomies()
+    CACHE['taxonomies'] = taxonomies
+    if taxonomies:
+        tx_tags = [_ for _ in taxonomies
+                   if _.get('item_url_pattern') and 'tag' in str(_['taxon'])]
+        if tx_tags:
+            tx_tags = tx_tags[0]
+            CACHE['taxonomies__tags'] = tx_tags
+%>
+% if page.tags and tx_tags:
   <%
-    tx_tags = [_ for _ in taxonomies
-               if _.get('item_url_pattern') and _.get('name', '').lower() in ('tag', 'tags')]
-    if tx_tags:
-        taglist_url = tx_tags[0]['list_url']
-        tag_urlpat = tx_tags[0]['item_url_pattern']
-    else:
-        return ''
+    taglist_url = tx_tags['list_url']
+    tag_urlpat = tx_tags['item_url_pattern']
   %>
   <div class="tags">
     <h4><a href="${ taglist_url }">Tags</a></h4>
