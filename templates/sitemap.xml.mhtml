@@ -1,0 +1,2 @@
+<%namespace import="sitemap" file="/lib/sitemap_xml.mc" />\
+${ sitemap(contentlist=MDCONTENT) }\

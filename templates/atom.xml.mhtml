@@ -1,0 +1,2 @@
+<%namespace name="atom" file="/lib/atom_xml.mc" />\
+${ atom.feed(contentlist=MDCONTENT.sorted_by_date()) }\

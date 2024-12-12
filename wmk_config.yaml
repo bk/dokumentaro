@@ -5,6 +5,8 @@ site:
   name: Dokumentaro
   # title -- mostly just an alternative to site.name
   base_url: https://dokumentaro.baldr.net
+  atom_feed: true
+  enable_sitemap: true
   lang: en
   locale: "en_US.utf8"
   nav_enabled: true
