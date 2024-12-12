@@ -12,7 +12,6 @@ code {
   & > code {
     padding: 0.2em 0.15em;
     font-weight: 400;
-    // background-color: $code-background-color;
     border: $border $border-color;
     border-radius: $border-radius;
   }
@@ -43,10 +42,8 @@ div.highlight {
     position: absolute;
     top: 0;
     right: 0;
-    // border: $sp-3 solid $code-background-color;
     padding: $sp-2;
     border: none;
-    // background-color: $code-background-color;
     background-color: transparent;
     color: $body-text-color;
     box-sizing: content-box;
