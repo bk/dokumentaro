@@ -2,10 +2,9 @@
 
 // this :not() prevents a style clash with Mermaid.js's
 // diagram labels, which also use .label
-// for more, see https://github.com/just-the-docs/just-the-docs/issues/1272
-// and the accompanying PR
 .label:not(g),
-.label-blue:not(g) {
+.label-blue:not(g),
+.tags > ul > li {
   display: inline-block;
   padding: 0.16em 0.56em;
   margin-right: $sp-2;
@@ -15,23 +14,55 @@
   vertical-align: middle;
   background-color: $blue-100;
   border-radius: 12px;
-
   @include fs-2;
+  > a {
+    color: inherit;
+  }
 }
 
 .label-green:not(g) {
   background-color: $green-200;
+  > a {
+    color: inherit;
+  }
 }
 
 .label-purple:not(g) {
   background-color: $purple-100;
+  > a {
+    color: inherit;
+  }
 }
 
 .label-red:not(g) {
   background-color: $red-200;
+  > a {
+    color: inherit;
+  }
 }
 
 .label-yellow:not(g) {
   color: $grey-dk-200;
   background-color: $yellow-200;
+  > a {
+    color: inherit;
+  }
+}
+
+// The list of tags below the page body is formatted similarly to
+// a series of labels (see above)
+.tags {
+  padding-top: 2rem;
+  > h4 > a {
+    color: inherit;
+    font-weight: bold;
+  }
+  > ul {
+    margin: 1rem 0;
+    padding: 0;
+    list-style: none;
+    > li:first-child {
+      margin-left: 0;
+    }
+  }
 }
