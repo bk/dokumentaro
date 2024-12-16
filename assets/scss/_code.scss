@@ -31,8 +31,38 @@ div.highlight {
   margin-bottom: 1em;
   overflow-x: auto;
   position: relative;
-  > pre {
+  pre {
     margin: 0;
+  }
+  // For line numbers
+  .table-wrapper {
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  table {
+    table-layout: fixed;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: inherit;
+    td {
+      font-size: 1rem !important;
+      border: none;
+      background: inherit;
+      padding: 0;
+      padding-left: .5rem;
+    }
+    td.linenos {
+      width: 2.5rem;
+      text-align: right;
+      padding-right: .5rem;
+      border-right: 1px solid $border-color;
+      span {
+        font-size: 0.75em;
+      }
+    }
   }
   // copy button (or other button)
   // the button appear only when there is a hover on the code or focus on button
@@ -182,8 +212,8 @@ code.diff span.st { color: var(--base08); font-weight: normal; font-style: norma
 code.diff span.va { color: var(--base0b); font-weight: normal; font-style: normal; } /* + lines */
 
 /* Pygments -- some room for improvement here... */
-td.linenos .normal { color: var(--base02); background-color: var(--base01); padding-left: 5px; padding-right: 5px; }
-span.linenos { color: var(--base02); background-color: var(--base01); padding-left: 5px; padding-right: 5px; }
+td.linenos .normal { color: var(--base0a); padding-left: 5px; padding-right: 5px; }
+span.linenos { color: var(--base0a); padding-left: 5px; padding-right: 5px; }
 td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
 span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
 .highlight .hll { background-color: var(--base01); }
@@ -266,3 +296,20 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .vi { color: var(--base0d); } /* Name.Variable.Instance */
 .highlight .vm { color: var(--base0d); } /* Name.Variable.Magic */
 .highlight .il { color: var(--base0c); } /* Literal.Number.Integer.Long */
+
+// Code examples are used in the documentation to group together a source code
+// block and the result.
+.code-example {
+  padding: 0.75rem;
+  margin-bottom: 0.75rem;
+  overflow: auto;
+  border: 1px solid $border-color;
+  border-radius: 4px;
+  + .highlight {
+    position: relative;
+    top: -0.75rem;
+    border: 1px solid $border-color;
+    border-top: none;
+    border-radius: 4px;
+  }
+}
