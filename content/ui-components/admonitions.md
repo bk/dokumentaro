@@ -50,13 +50,13 @@ This is a short admonition of the **info** type. Its color is blue and it has no
 
 <div class="code-example" markdown="1">
 
-/// tip | Be cool with this one trick
+/// tip | Green is good
 This is a short admonition of the **tip** type. Its color is green and it has a custom title.
 ///
 
 </div>
 ```markdown
-/// tip | Be cool with this one trick
+/// tip | Green is good
 This is a short admonition of the **tip** type. Its color is green and it has a custom title.
 ///
 ```
@@ -71,6 +71,7 @@ This is a short admonition of the **quote** type. Its color is grey and it has n
 ```markdown
 /// quote |
 This is a short admonition of the **quote** type. Its color is grey and it has no title, because it has a pipe character with nothing following it on the first line.
+///
 ```
 
 <div class="code-example" markdown="1">
