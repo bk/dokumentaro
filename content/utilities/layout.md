@@ -4,13 +4,8 @@ parent: Utilities
 ---
 
 # Layout Utilities
-{: .no_toc }
 
-## Table of contents
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
+[TOC]
 
 ---
 
@@ -55,7 +50,6 @@ Spacing values are based on a `1rem = 16px` spacing scale, broken down into thes
 Use `mx-auto` to horizontally center elements.
 
 ### Applying Spacing Utilities with `{: }`
-{: .no_toc .text-delta }
 
 In Markdown, use the `{: }` wrapper to apply custom classes:
 
@@ -106,7 +100,6 @@ Display classes aid in adapting the layout of the elements on a page:
 Use these classes in conjunction with the responsive modifiers.
 
 ### Applying Display Utilities with `{: }`
-{: .no_toc .text-delta }
 
 In Markdown, use the `{: }` wrapper to apply custom classes:
 
@@ -116,11 +109,7 @@ This button will be hidden until medium screen sizes:
 [ A button ](#url)
 {: .d-none .d-md-inline-block }
 
-These headings will be `inline-block`:
+This heading will be `inline-block`:
 
-### heading 3
-{: .d-inline-block }
-
-### heading 3
-{: .d-inline-block }
+### heading 3 {: .d-inline-block }
 ```

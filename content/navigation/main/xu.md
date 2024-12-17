@@ -1,12 +1,15 @@
 ---
 title: U
 parent: xt
-ancestor: X
 ---
+
 # U
+
+This page has a parent called `T` and needs to disambiguate between two pages with that title.
+
+There is [another page](../yu/) with the same problem.
 
 ```yaml
 title: U
-parent: T
-ancestor: X
+parent: xt
 ```

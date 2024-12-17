@@ -4,13 +4,8 @@ parent: Utilities
 ---
 
 # Typography Utilities
-{: .no_toc }
 
-## Table of contents
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
+[TOC]
 
 ---
 
@@ -32,48 +27,68 @@ Use the `.fs-1` - `.fs-10` to set an explicit `font-size`.
 | `.fs-10`| 42px                           | 48px                          |
 
 <div class="code-example" markdown="1">
+
 Font size 1
 {: .fs-1 }
+
 Font size 2
 {: .fs-2 }
+
 Font size 3
 {: .fs-3 }
+
 Font size 4
 {: .fs-4 }
+
 Font size 5
 {: .fs-5 }
+
 Font size 6
 {: .fs-6 }
+
 Font size 7
 {: .fs-7 }
+
 Font size 8
 {: .fs-8 }
+
 Font size 9
 {: .fs-9 }
+
 Font size 10
 {: .fs-10 }
+
 </div>
 ```markdown
 In Markdown, use the `{: }` wrapper to apply custom classes:
 
 Font size 1
 {: .fs-1 }
+
 Font size 2
 {: .fs-2 }
+
 Font size 3
 {: .fs-3 }
+
 Font size 4
 {: .fs-4 }
+
 Font size 5
 {: .fs-5 }
+
 Font size 6
 {: .fs-6 }
+
 Font size 7
 {: .fs-7 }
+
 Font size 8
 {: .fs-8 }
+
 Font size 9
 {: .fs-9 }
+
 Font size 10
 {: .fs-10 }
 ```
@@ -85,22 +100,29 @@ Use the `.fw-300` - `.fw-700` to set an explicit `font-weight`.
 <div class="code-example" markdown="1">
 Font weight 300
 {: .fw-300 }
+
 Font weight 400
 {: .fw-400 }
+
 Font weight 500
 {: .fw-500 }
+
 Font weight 700
 {: .fw-700 }
+
 </div>
 ```markdown
 In Markdown, use the `{: }` wrapper to apply custom classes:
 
 Font weight 300
 {: .fw-300 }
+
 Font weight 400
 {: .fw-400 }
+
 Font weight 500
 {: .fw-500 }
+
 Font weight 700
 {: .fw-700 }
 ```
@@ -116,30 +138,30 @@ Use the `lh-` classes to explicitly apply line height to text.
 | `.lh-default` | 1.4                  | Default for body (paragraphs) |
 
 <div class="code-example" markdown="1">
-No Line height
+No Line height<br>
 No Line height
 {: .lh-0 }
 
-Tight line height
+Tight line height<br>
 Tight line height
 {: .lh-tight }
 
-Default line height
+Default line height<br>
 Default line height
 {: .fh-default }
 </div>
 ```markdown
 In Markdown, use the `{: }` wrapper to apply custom classes:
 
-No Line height
+No Line height<br>
 No Line height
 {: .lh-0 }
 
-Tight line height
+Tight line height<br>
 Tight line height
 {: .lh-tight }
 
-Default line height
+Default line height<br>
 Default line height
 {: .fh-default }
 ```
