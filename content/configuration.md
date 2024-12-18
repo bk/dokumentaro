@@ -169,28 +169,23 @@ Currently, tags are [not supported](https://github.com/just-the-docs/just-the-do
 
 ## Color scheme
 
-The color scheme setting supports "light" (or "default") and "dark". User-defined colorschemes are possible by adding SCSS files in `assets/scss`.
+The color scheme setting supports "light" (or "default") and "dark". User-defined colorschemes are possible by adding SCSS files in `assets/scss` – see [here](../customization/#custom-schemes) for details.
 
 ```yaml
 site:
   color_scheme: dark
 ```
 
-<button class="btn js-toggle-dark-mode">Preview dark color scheme</button>
+There is a related option for showing a color scheme switcher widget:
 
-<script>
-const toggleDarkMode = document.querySelector('.js-toggle-dark-mode');
+```yaml
+site:
+  color_scheme_switcher: true
+```
 
-d9o.addEvent(toggleDarkMode, 'click', function(){
-  if (d9o.getTheme() === 'dark') {
-    d9o.setTheme('light');
-    toggleDarkMode.textContent = 'Preview dark color scheme';
-  } else {
-    d9o.setTheme('dark');
-    toggleDarkMode.textContent = 'Return to the light side';
-  }
-});
-</script>
+The option is true by default.
+
+The switcher is located to the right in the header if the screen is wide enough; otherwise it is immediately below the search form in the mobile menu. It consists of a sun or a moon symbol, depending on which color scheme is active. If you use a custom color scheme you should either alter or turn off this widget.
 
 ## Callouts
 
