@@ -39,11 +39,7 @@
     }
   }
   window.addEventListener('DOMContentLoaded', (event) => {
-    new PagefindUI({
-      element: "#search",
-      showSubResults: true,
-      showImages: false
-    });
+    new PagefindUI(<%include file="pagefind_ui_settings.mc" />);
     attach_pf_search_observer();
   });
 </script>

@@ -32,7 +32,7 @@
         curpage = context.get('_page', 1)
   %>
   % if curpage == 1:
-    ${ CONTENT }
+    ${ CONTENT | self.attr._tocfilter }
   % endif
 
   % if chunks:

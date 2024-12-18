@@ -7,177 +7,74 @@ tags:
 ---
 
 # Search
-{: .no_toc }
 
-## Table of contents
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
+[TOC]
 
 ---
 
-Just the Docs uses [lunr.js](https://lunrjs.com) to add a client-side search interface powered by a JSON index that Jekyll generates.
-All search results are shown in an auto-complete style interface (there is no search results page).
-By default, all generated HTML pages are indexed using the following data points:
+Dokumentaro uses [Pagefind](https://pagefind.app/) for search.
 
-- Page title
-- Page content
-- Page URL
+Settings related to search fall into three categories: (1) enabling/disabling; (2) other configuration settings affecting search; (3) PagefindUI settings; (4) styling.
 
-## Enable search in configuration
+## Enabling and disabling search
 
-In your site's `_config.yml`, enable search:
+Search is enabled by default. The settings in `wmk_config.yaml` that must be present for this to be the case are the following:
 
 ```yaml
-# Enable or disable the site search
-# Supports true (default) or false
-search_enabled: true
+site:
+  search_enabled: true
+cleanup_commands:
+  - "npx -y pagefind --site htdocs"
 ```
 
-### Search granularity
+These settings are default as they are provided by the theme.
 
-Pages are split into sections that can be searched individually.
-The sections are defined by the headings on the page.
-Each section is displayed in a separate search result.
+/// warning
+For the Pagefind indexing command to work, obviously you must have [npm](https://www.npmjs.com/) and [npx](https://docs.npmjs.com/cli/v10/commands/npx) installed on the machine where the website is built.
+///
+
+If you need to customize the [command line for Pagefind](https://pagefind.app/docs/config-options/), you should change the provided `cleanup_commands` entry. Similarly, if you add an unrelated `cleanup_commands` entry, you must make sure to include the Pagefind indexing command as well.
+
+If you decide to turn off the search functionality, you should of course remove the Pagefind indexing command as well, e.g. as follows:
 
 ```yaml
-# Split pages into sections that can be searched individually
-# Supports 1 - 6, default: 2
-search.heading_level: 2
+site:
+  search_enabled: false
+cleanup_commands:
+  - "echo 'NOTE: Pagefind indexing is currently disabled'"
 ```
 
-### Search previews
+## Other configuration settings
 
-A search result can contain previews that show where the search words are found in the specific section.
+Pagefind by default creates separate indexes for each content language. There are also different stemming rules for different languages. Therefore, the `site.lang` setting affects the search functionality. If all your pages are in one language, you should set `site.lang` accordingly. The default value is `en` (i.e. English).
+
+/// note
+If you have a multilingual site, each page should have a `lang` variable to indicate its primary language. Note that in this case, the site search only looks in the subset of pages that belong to the language of the page you're searching from. However, Dokumentaro is not especially suited to multilingual sites, so this kind of setup is not really recommended.
+///
+
+The placeholder text shown in the search box is configurable with the setting `site.search_placeholder`. By default its value is "Search this website". If your main language is not English, you might want to change this. For example (for French):
 
 ```yaml
-# Maximum amount of previews per search result
-# Default: 3
-search.previews: 3
-
-# Maximum amount of words to display before a matched word in the preview
-# Default: 5
-search.preview_words_before: 5
-
-# Maximum amount of words to display after a matched word in the preview
-# Default: 10
-search.preview_words_after: 10
+site:
+  search_placeholder: Rechercher sur le site
 ```
 
-### Search tokenizer
+## PagefindUI settings
 
-The default is for hyphens to separate tokens in search terms:
-`gem-based` is equivalent to `gem based`, matching either word.
-To allow search for hyphenated words:
+You can change the settings for the [PagefindUI](https://pagefind.app/docs/ui/) by overriding `templates/base/_pagefind_ui_settings.mc`, which should contain a single Javascript object. The default content is the following:
 
-```yaml
-# Set the search token separator
-# Default: /[\s\-/]+/
-# Example: enable support for hyphenated search words
-search.tokenizer_separator: /[\s/]+/
+```js
+{
+  element: "#search",
+  showSubResults: true,
+  showImages: false
+}\
 ```
 
-### Display URL in search results
+## Styling
 
-```yaml
-# Display the relative url in search results
-# Supports true (default) or false
-search.rel_url: false
-```
+Pagefind provides its own stylesheet which is independent of the main stylesheet for Dokumentaro.
 
-### Display search button
+The integration that is present is found in the theme's `assets/scss/_search.scss`. However, the most natural way to add CSS that relates to search is simply to place relevant rules and settings in your site's `assets/scss/_custom.scss`.
 
-The search button displays in the bottom right corner of the screen and triggers the search input when clicked.
-
-```yaml
-# Enable or disable the search button that appears in the bottom right corner of every page
-# Supports true or false (default)
-search.button: true
-```
-
-### Focus search bar with a keyboard shortcut
-
-Just the Docs supports focusing the search bar input with a keyboard shortcut. After setting the `search.focus_shortcut_key` config item key, users who press <kbd>Ctrl</kbd> + `search.focus_shortcut_key` (or on macOS, <kbd>Command</kbd> + `search.focus_shortcut_key`) will focus the search bar.
-
-Note that this feature is **disabled by default**. `search.focus_shortcut_key` should be a [valid value from `KeyboardEvent.key`](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key); this involves all ASCII alphanumeric values, as well as modifier keys.
-
-For example,
-
-```yaml
-search:
-    focus_shortcut_key: 'k'
-```
-
-Will make <kbd>Ctrl</kbd> + <kbd>K</kbd> focus the search bar for Windows users (and <kbd>Command</kbd> + <kbd>K</kbd> on macOS).
-
-## Hiding pages from search
-
-Sometimes you might have a page that you don't want to be indexed for the search nor to show up in search results, e.g., a 404 page.
-To exclude a page from search, add the `search_exclude: true` parameter to the page's YAML front matter:
-
-{: .no_toc }
-
-```yaml
----
-layout: default
-title: Page not found
-nav_exclude: true
-search_exclude: true
----
-
-```
-
-## Generate search index when used as a gem
-
-If you use Just the Docs as a remote theme, you do not need the following steps.
-
-If you use the theme as a gem, you must initialize the search by running this `rake` command that comes with `just-the-docs`:
-
-```bash
-$ bundle exec just-the-docs rake search:init
-```
-
-This command creates the `/js/zzzz-search-data.json` file that Jekyll uses to create your search index.
-Alternatively, you can create the file manually with [this content]({{ site.github.repository_url }}/blob/main/assets/js/zzzz-search-data.json).
-
-## Custom content for search index
-{: .d-inline-block }
-
-New (v0.4.0)
-{: .label .label-green }
-
-Advanced
-{: .label .label-yellow }
-
-By default, the search feature indexes a page's `.content`, `.title`, and *some* headers within the `.content`. Other data (e.g. front matter, files in `_data` and `assets`) is not indexed. Users can customize what is indexed.
-
-{: .warning }
-> Customizing search indices is an advanced feature that requires Javascript and Liquid knowledge.
-
-1. When Just the Docs is a local or gem theme, ensure `assets/js/zzzz-search-data.json` is up-to-date with [Generate search index when used as a gem](#generate-search-index-when-used-as-a-gem).
-2. Add a new file named `_includes/lunr/custom-data.json`. Insert custom Liquid code that reads your data (e.g. the page object at `include.page`) then generates custom Javascript fields that hold the custom data you want to index. Verify these fields in the generated `assets/js/search-data.json`.
-3. Add a new file named `_includes/lunr/custom-index.js`. Insert custom Javascript code that reads your custom Javascript fields and inserts them into the search index. You may want to inspect `assets/js/just-the-docs.js` to better understand the code.
-
-### Example: adding custom `usage` and `examples` fields
-{: .text-delta }
-
-This example adds front matter `usage` and `examples` fields to the search index.
-
-`_includes/lunr/custom-data.json` custom code reads the page `usage` and `examples` fields, normalizes the text, and writes the text to custom Javascript `myusage` and `myexamples` fields. Javascript fields are similar yet [not the same as JSON](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON#javascript_and_json_differences). `jsonify` will probably work for most scenarios.
-
-{% raw %}
-```liquid
-{%- capture newline %}
-{% endcapture -%}
-"myusage": {{ include.page.usage | markdownify | replace:newline,' ' | strip_html | normalize_whitespace | strip | jsonify }},
-"myexamples": {{ include.page.examples | markdownify | replace:newline,' ' | strip_html | normalize_whitespace | strip | jsonify }},
-```
-{% endraw %}
-
-`_includes/lunr/custom-index.js` custom code is inserted into the Javascript loop of `assets/js/just-the-docs.js`. All custom Javascript fields are accessed as fields of `docs[i]` such as `docs[i].myusage`. Finally, append your custom fields on to the already existing `docs[i].content`.
-
-```javascript
-const content_to_merge = [docs[i].content, docs[i].myusage, docs[i].myexamples];
-docs[i].content = content_to_merge.join(' ');
-```
+Pagefind provides a number of [CSS variables](https://pagefind.app/docs/ui-usage/#customising-the-styles) that can be used to tweak the appearance of search results.

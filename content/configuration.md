@@ -133,7 +133,7 @@ The effect of these settings is to display a link below the main body that allow
 
 In order to use tags in your documentation pages, two things must first be present:
 
-In the first place, `site.tags_enabmled` must be true (which it is by default):
+In the first place, `site.tags_enabled` must be true (which it is by default):
 
 ```yaml
 site:
@@ -153,10 +153,7 @@ TAXONOMY:
   name: tags
   name_singular: tag
   name_plural: tags
-  list_settings:
-    pagination: false
   detail_settings:
-    pagination: false
     relationship_description: are tagged with the tag
 ---
 
@@ -166,9 +163,9 @@ All active tags on this site are listed below in alphabetical order.
 Click on a tag to show a list of the pages tagged with it.
 ```
 
-Without the tag page, Dokumentaro will not be able to link to the subpage for each tag, so the tag list will not appear in the footer.
+Without the tag page, Dokumentaro will not be able to link to the subpage for each tag, so the list of tags will not appear in the footer. The tag page must use the `taxonomy` layout (i.e. `templates/base/taxonomoy.mhtml`).
 
-Currently, tags are [not supported](https://github.com/just-the-docs/just-the-docs/issues/255) by Just the Docs because the design of Jekyll makes this difficult for documentation sites.
+Currently, tags are [not supported](https://github.com/just-the-docs/just-the-docs/issues/255) by Just the Docs because the design of Jekyll makes this difficult for documentation sites. The tags support by Dokumentaro is thus an extra feature relative to Just the Docs.
 
 ## Color scheme
 

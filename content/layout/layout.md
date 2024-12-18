@@ -28,6 +28,11 @@ A child and grandchild page of this page use the minimal layout. This differs fr
 Another way to disable the sidebar is to set the `nav_enabled` frontmatter variable to false.
 You can set this as the default for the website by setting the `site.nav_enabled` configuration option to false.
 
+## The `taxonomy` layout
+
+If you [enable tag support](../../configuration/#tags), then your tags page must use the `taxonomy` layout. It can also be used for other taxonomies you may wish to add to your site, e.g. categories, topics, sections or authors.
+
+The `taxonomy` layout inherits from the default layout and only overrides the main body of the page and the page title. Other features are unchanged.
 
 ## Other layouts
 
