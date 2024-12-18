@@ -3,22 +3,6 @@ title: Markdown kitchen sink
 nav_order: 99
 ---
 
-<button class="btn js-toggle-dark-mode">Preview dark color scheme</button>
-
-<script>
-const toggleDarkMode = document.querySelector('.js-toggle-dark-mode');
-
-d9o.addEvent(toggleDarkMode, 'click', function(){
-  if (d9o.getTheme() === 'dark') {
-    d9o.setTheme('light');
-    toggleDarkMode.textContent = 'Preview dark color scheme';
-  } else {
-    d9o.setTheme('dark');
-    toggleDarkMode.textContent = 'Return to the light side';
-  }
-});
-</script>
-
 Text can be **bold**, _italic_, or ~~strikethrough~~.
 
 [Link to another page](/).

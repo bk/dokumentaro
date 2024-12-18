@@ -18,22 +18,8 @@ Dokumentaro includes two color schemes: light (default), and dark.
 
 To enable a color scheme, set the `site.color_scheme` variable in `wmk_config.yaml`.
 
-
-<button class="btn js-toggle-dark-mode">Preview dark color scheme</button>
-
-<script>
-const toggleDarkMode = document.querySelector('.js-toggle-dark-mode');
-
-d9o.addEvent(toggleDarkMode, 'click', function(){
-  if (d9o.getTheme() === 'dark') {
-    d9o.setTheme('default');
-    toggleDarkMode.textContent = 'Preview dark color scheme';
-  } else {
-    d9o.setTheme('dark');
-    toggleDarkMode.textContent = 'Return to the light side';
-  }
-});
-</script>
+Use the color switcher at the top right to switch between them and set your preference.
+It can be disabled by setting `site.color_scheme_switcher` to false.
 
 ## Custom schemes
 
