@@ -1,9 +1,3 @@
-@import "custom/site-vars";
-@import "./support/support";
-@import "./custom/setup";
-@import "./color_schemes/dark";
-// TODO: import non_-light color schems?
-@import "./modules";
-@import "./admonitions";
-// @import "./head-nav";
-@import "custom/custom";
+@import "before_color_scheme";
+@import "color_schemes/dark";
+@import "after_color_scheme";
