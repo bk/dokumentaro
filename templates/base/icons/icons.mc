@@ -10,4 +10,8 @@
   % if site.enable_copy_code_button:
     <%include file="./code_copy.mc" />
   % endif
+  % if site.color_scheme_switcher:
+    <%include file="./sun.mc" />
+    <%include file="./moon.mc" />
+  % endif
 </svg>

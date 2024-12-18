@@ -180,9 +180,14 @@
   .aux-nav-list {
     display: flex;
     height: 100%;
+    @inclued mq(md) {
+      height: $header-height;
+    }
     padding: 0;
     margin: 0;
     list-style: none;
+    align-items: center;
+    justify-content: space-evenly;
   }
 
   .aux-nav-list-item {
@@ -190,6 +195,9 @@
     height: 100%;
     padding: 0;
     margin: 0;
+    a {
+      padding: 1.2rem 1rem;
+    }
   }
 
   @include mq(md) {
@@ -231,5 +239,23 @@
     &::after {
       content: "";
     }
+  }
+}
+
+// Color scheme switcher
+
+.color-switcher {
+  height: 100%;
+  overflow-x: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  svg {
+    margin: 0 5px;
+    height: 20px;
+    width: 20px;
+  }
+  @include mq(md) {
+    height: $header-height;
   }
 }

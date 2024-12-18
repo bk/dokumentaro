@@ -14,6 +14,7 @@ site:
   back_to_top: true
   back_to_top_text: Back to top
   color_scheme: default
+  color_scheme_switcher: true
   enable_copy_code_button: true
   last_edit_time_format: "%Y-%m-%d %H:%M"
   search_enabled: true
