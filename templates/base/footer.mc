@@ -18,9 +18,9 @@
             Page last modified: <span class="d-inline-block">${ (page.modified_date or MTIME) | date(fmt=site.last_edit_time_format) }</span>.
           </p>
         % endif
-        % if site.gh_edit_link and site.gh_edit_link_text and site.gh_edit_repository and site.gh_edit_branch and site.gh_edit_view_mode:
+        % if site.gh_edit_link and site.gh_edit_link_text and SELF_SHORT_PATH:
           <p class="text-small text-grey-dk-000 mb-0">
-            <a href="${ site.gh_edit_repository }/${ site.gh_edit_view_mode }/${ site.gh_edit_branch }${ '/'+site.gh_edit_source if site.gh_edit-source else '' }/${ page.path }" id="edit-this-page">${ site.gh_edit_link_text }</a>
+            <a href="${ site.gh_edit_link.rstrip('/') }${ SELF_SHORT_PATH }" id="edit-this-page">${ site.gh_edit_link_text }</a>
           </p>
         % endif
       </div>
