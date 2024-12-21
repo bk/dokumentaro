@@ -123,11 +123,15 @@ The effect of these settings is to display a last edited time below the main bod
 
 ```yaml
 site:
-  gh_edit_link: 'https://github.com/bk/dokumentaro/edit/master/content'
+  gh_edit_link: 'https://github.com/bk/dokumentaro/edit/main/docs/content'
   gh_edit_link_text: Edit this file on Github
 ```
 
-The effect of these settings is to display a link below the main body that allows editing the source of the page. Despite the name, the link does not necessarily have to be on GitHub. It might e.g. point to GitLab or a private Gitea installation instead. Both options must be set in order for a link to be displayed.
+Both options must be set in order for a link to be displayed.
+
+The effect of these settings is to display a link below the main body that allows editing the source of the page. Despite the name, the link does not necessarily have to be on GitHub. It might e.g. point to GitLab or a private Gitea installation instead. Or you might use this for linking to a page for merely viewing the source (rather than editing it).
+
+What is appended to the URL in `gh_edit_link` is the `SELF_SHORT_PATH` value, which is the path to the current content source, taking the `content/` directory as root. To take an example, for the present file that value is `{{< var('SELF_SHORT_PATH') >}}`.
 
 ### Tags
 
