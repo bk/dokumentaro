@@ -1,11 +1,9 @@
 nav: auto
 toc: true
-#pandoc: true
 site:
   name: Dokumentaro
-  # title -- mostly just an alternative to site.name
-  base_url: https://dokumentaro.baldr.net
-  atom_feed: true
+  # base_url: https://dokumentaro.baldr.net
+  atom_feed: false
   enable_sitemap: true
   lang: en
   locale: "en_US.utf8"
@@ -18,37 +16,11 @@ site:
   enable_copy_code_button: true
   last_edit_time_format: "%Y-%m-%d %H:%M"
   search_enabled: true
-  search_placeholder: Search Dokumentaro
+  search_placeholder: Search this website
   tags_enabled: true
-  #tag_urls:
-  #  list: '/tags/'
-  #  item: '/tags/{}/'
-  aux_links:
-    - title: Mbl
-      url: https://www.mbl.is/frettir/
-  aux_links_new_tab: true
-  mermaid:
-    version: 11.4.1
-  nav_external_links:
-    - title: wmk on github
-      url: https://github.com/bk/wmk
-    - title: wmk documentation
-      url: https://wmk.baldr.net/
-  nav_external_links_new_tab: true
-  last_edit_timestamp: true
-  # Other settings:
-  # favicon_ico
-  # footer_content
-  # ga_tracking
-  # ga_tracking_anonymize_ip
-  # gh_edit_link
-  # gh_edit_link_text
-  # gh_edit_view_mode
-  # logo
-  # mermaid
-  # nav_footer_text
-  # search -- object: button, rel_url, focus_shortcut_key, preview_words_before, preview_words_after
-  # search_tokenizer_separator
+  aux_links_new_tab: false
+  nav_external_links_new_tab: false
+  last_edit_timestamp: false
 markdown_extensions:
   - sane_lists
   - toc
@@ -59,7 +31,8 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.highlight
   - pymdownx.tasklist
-# For the mermaid config, see https://facelessuser.github.io/pymdown-extensions/extras/mermaid/
+# For the mermaid config below, see
+# https://facelessuser.github.io/pymdown-extensions/extras/mermaid/
 markdown_extension_configs:
   pymdownx.highlight:
     use_pygments: true
