@@ -189,7 +189,7 @@ site:
 
 The option is true by default.
 
-The switcher is located to the right in the header if the screen is wide enough; otherwise it is immediately below the search form in the mobile menu. It consists of a sun or a moon symbol, depending on which color scheme is active. If you use a custom color scheme you should either alter or turn off this widget.
+The switcher is located at the right edge of header if the screen is wide enough; otherwise it is at the bottom of the mobile menu. It consists of a sun or a moon symbol, depending on which color scheme is active. If you use a custom color scheme you should either alter or turn off this widget.
 
 ## Callouts
 

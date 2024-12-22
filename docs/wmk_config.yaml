@@ -2,15 +2,12 @@ theme: dokumentaro
 site:
   base_url: https://dokumentaro.baldr.net
   search_placeholder: Search Dokumentaro
-  aux_links:
-    - title: Dokumentaro on GitHub
-      url: https://github.com/bk/dokumentaro
   aux_links_new_tab: true
   mermaid:
     version: 11.4.1
   nav_external_links:
-    - title: wmk on github
-      url: https://github.com/bk/wmk
+    - title: Dokumentaro on GitHub
+      url: https://github.com/bk/dokumentaro
     - title: wmk documentation
       url: https://wmk.baldr.net/
   nav_external_links_new_tab: true

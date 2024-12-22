@@ -64,7 +64,7 @@ Any HTML added to the file `templates/base/head_custom.mc` will be inserted befo
 
 ### Custom Header
 
-Content added to `templates/base/header_custom.mc` appears at the top of every page's main content between the site search and auxiliary links (if they are enabled). If `site.search_enabled` were set to false and `site.aux_links` were removed, the content of `header_custom.html` would occupy the space at the top of every page.
+Content added to `templates/base/header_custom.mc` appears at the top of every page's main content between the site search and auxiliary links (if they are enabled) or theme switcher (if they are not). If `site.search_enabled` and `site.color_scheme_switcher` were set to false and `site.aux_links` not set, the content of `header_custom.mc` would expand to occupy the entire space to the right of the site name/logo.
 
 ### Custom Nav Footer
 
