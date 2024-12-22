@@ -69,7 +69,7 @@ def _tocfilter(s):
           </div>
           <%include file="page_tags.mc" />
           <% page_in_nav = nav.find_item(url=SELF_URL, normalize=url) %>
-          % if page_in_nav and page_in_nav.children:
+          % if page_in_nav and page_in_nav.children and not page.disable_subpages_toc:
             <hr>
             <%include file="toc_heading_custom.mc" />
             <ul class="child-pages-list">

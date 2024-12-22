@@ -39,7 +39,7 @@
 
     <ul>
     % for it in chunks[curpage-1]:
-      <li><a href="${ it['url'] }">${ it['name'] }</a></li>
+      <li><a href="${ it['url'] | url }">${ it['name'] }</a></li>
     % endfor
     </ul>
     % if len(chunks) > 1:
@@ -50,7 +50,7 @@
 
     <ul>
     % for it in TAXONS:
-      <li><a href="${ it['url'] }">${ it['name'] }</a> (${ it['count'] })</li>
+      <li><a href="${ it['url'] | url }">${ it['name'] }</a> (${ it['count'] })</li>
     % endfor
     </ul>
 
@@ -82,7 +82,7 @@
   <ul>
   % for it in chunks[curpage-1]:
     <% pg = it['data']['page'] %>
-    <li><a href="${ it['data']['SELF_URL'] }">${ pg.title }</a></li>
+    <li><a href="${ it['data']['SELF_URL'] | url }">${ pg.title }</a></li>
   % endfor
   </ul>
 
@@ -97,7 +97,7 @@
     % if curpage == i+1:
       <strong>${ curpage }</strong>
     % else:
-      <a href="${ urls[i] }">${ (i+1) }</a>
+      <a href="${ urls[i] | url }">${ (i+1) }</a>
     % endif
   % endfor
   ]
