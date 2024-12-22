@@ -5,10 +5,10 @@
     <div></div>
   % endif
   <%include file="header_custom.mc" />
-  % if site.color_scheme_switcher:
-    <%include file="color_scheme_switcher.mc" />
-  % endif
   % if site.aux_links:
     <%include file="aux_nav.mc" />
+  % endif
+  % if site.color_scheme_switcher:
+    <%include file="color_scheme_switcher.mc" />
   % endif
 </div>

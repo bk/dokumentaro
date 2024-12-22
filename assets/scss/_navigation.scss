@@ -250,6 +250,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  a:hover svg.icon {
+    color: $body-text-color;
+  }
   svg {
     margin: 0 5px;
     height: 20px;

@@ -1,15 +1,3 @@
-<%doc>
-  Include as: {%- include components/sidebar.html -%}
-  Depends on: page(?), site.
-  Results in: HTML for the side bar.
-  Includes:
-    title.html, components/site_nav.html, nav_footer_custom.html
-    site_title.mc
-  Overwrites:
-    nav_footer_custom.
-  Should not be cached, because nav_footer_custom.html might depend on page.
-</%doc>
-
 <div class="side-bar">
   <div class="site-header" role="banner">
     <a href="${ '/' | url }" class="site-title lh-tight"><%include file="site_title.mc" /></a>
