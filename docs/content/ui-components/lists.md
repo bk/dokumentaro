@@ -3,7 +3,7 @@ title: Lists
 parent: UI Components
 nav_order: 5
 tags:
-  - components
+  - css
 ---
 
 # Lists

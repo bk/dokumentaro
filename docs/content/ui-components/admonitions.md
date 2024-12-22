@@ -3,7 +3,7 @@ title: Admonitions
 parent: UI Components
 nav_order: 7
 tags:
-  - components
+  - css
 ---
 
 # Admonitions

@@ -1,6 +1,8 @@
 ---
 title: Responsive Modifiers
 parent: Utilities
+tags:
+  - css
 ---
 
 # Responsive modifiers

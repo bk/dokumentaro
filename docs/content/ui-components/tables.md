@@ -3,7 +3,7 @@ title: Tables
 parent: UI Components
 nav_order: 4
 tags:
-  - components
+  - css
 ---
 
 # Tables

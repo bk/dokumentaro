@@ -3,6 +3,8 @@ title: Minimal layout child page
 layout: minimal
 parent: A minimal layout page
 grand_parent: Layout
+tags:
+  - layout
 ---
 
 # Minimal layout child page

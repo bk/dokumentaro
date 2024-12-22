@@ -2,6 +2,8 @@
 title: External Links
 parent: Main Navigation
 nav_order: 6
+tag:
+  - navigation
 ---
 
 # External Links

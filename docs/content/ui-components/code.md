@@ -2,6 +2,8 @@
 title: Code
 parent: UI Components
 nav_order: 6
+tags:
+  - css
 ---
 
 # Code

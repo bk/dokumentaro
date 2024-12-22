@@ -2,6 +2,8 @@
 title: Excluding Pages
 parent: Main Navigation
 nav_order: 2
+tag:
+  - navigation
 ---
 
 # Excluding Pages

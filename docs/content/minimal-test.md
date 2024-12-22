@@ -4,7 +4,7 @@ title: Minimal layout test
 nav_exclude: true
 tags:
   - configuration
-  - layouts
+  - layout
 ---
 
 # Minimal Layout Test Page

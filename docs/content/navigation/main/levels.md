@@ -2,6 +2,8 @@
 title: Page Levels
 parent: Main Navigation
 nav_order: 3
+tags:
+  - navigation
 ---
 
 # Page Levels

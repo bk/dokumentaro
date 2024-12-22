@@ -2,6 +2,8 @@
 title: A minimal layout page
 layout: minimal
 parent: layout-layout
+tags:
+  - layout
 ---
 
 # A minimal layout page

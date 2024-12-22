@@ -1,6 +1,8 @@
 ---
 title: Typography
 parent: Utilities
+tags:
+  - css
 ---
 
 # Typography Utilities

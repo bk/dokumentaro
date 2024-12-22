@@ -1,6 +1,8 @@
 ---
 title: Layout
 parent: Utilities
+tags:
+  - css
 ---
 
 # Layout Utilities

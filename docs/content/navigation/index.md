@@ -1,6 +1,8 @@
 ---
 title: Navigation
 nav_order: 5
+tags:
+  - navigation
 ---
 
 # Navigation

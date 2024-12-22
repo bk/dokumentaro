@@ -3,7 +3,7 @@ title: UI Components
 nav_order: 3
 tags:
   - appearance
-  - components
+  - css
 ---
 
 # UI Components

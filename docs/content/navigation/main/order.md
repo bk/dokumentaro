@@ -2,6 +2,8 @@
 title: Ordering Pages
 parent: Main Navigation
 nav_order: 1
+tag:
+  - navigation
 ---
 
 # Ordering Pages

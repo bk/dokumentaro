@@ -1,6 +1,8 @@
 ---
 title: Color
 parent: Utilities
+tags:
+  - css
 ---
 
 # Color Utilities
