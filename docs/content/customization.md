@@ -28,7 +28,7 @@ It can be disabled by setting `site.color_scheme_switcher` to false.
 
 You can add custom schemes. This involves adding a set of CSS variables scoped to a `body` class with the same name as the new scheme. For reference, here is the SCSS code for the dark color scheme (in `_vars.scss`):
 
-```scss
+```
 body.dark {
   --base-button-color: #{$grey-dk-250};
   --body-background-color: #{$blackish};
