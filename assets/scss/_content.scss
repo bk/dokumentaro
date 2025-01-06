@@ -3,8 +3,11 @@
 // Styles for rendered markdown in the .content-body container
 // stylelint-disable selector-no-type, max-nesting-depth, selector-max-compound-selectors, selector-max-type, selector-max-specificity, selector-max-id
 
+@use "mixins";
+@use "vars";
+
 .content-body {
-  line-height: $content-line-height;
+  line-height: vars.$content-line-height;
 
   ol,
   ul,
@@ -28,7 +31,7 @@
 
   li {
     .highlight {
-      margin-top: $sp-1;
+      margin-top: vars.$sp-1;
     }
   }
 
@@ -43,12 +46,12 @@
         position: absolute;
         top: 0.2em;
         left: -1.6em;
-        color: $grey-dk-000;
+        color: vars.$grey-dk-000;
         content: counter(step-counter);
         counter-increment: step-counter;
-        @include fs-3;
+        @include mixins.fs-3;
 
-        @include mq(sm) {
+        @include mixins.mq(sm) {
           top: 0.11em;
         }
       }
@@ -73,7 +76,7 @@
       &::before {
         position: absolute;
         margin-left: -1.4em;
-        color: $grey-dk-000;
+        color: vars.$grey-dk-000;
         content: "•";
       }
     }
@@ -161,23 +164,23 @@
 
   .anchor-heading {
     position: absolute;
-    right: -$sp-4;
-    width: $sp-5;
+    right: -#{vars.$sp-4};
+    width: vars.$sp-5;
     height: 100%;
-    padding-right: $sp-1;
-    padding-left: $sp-1;
+    padding-right: vars.$sp-1;
+    padding-left: vars.$sp-1;
     overflow: visible;
 
-    @include mq(md) {
+    @include mixins.mq(md) {
       right: auto;
-      left: -$sp-5;
+      left: -#{vars.$sp-5};
     }
 
     svg {
       display: inline-block;
       width: 100%;
       height: 100%;
-      color: $link-color;
+      color: vars(--link-color);
       visibility: hidden;
     }
   }
@@ -233,6 +236,6 @@
   > .sect3:first-child > h4,
   > .sect4:first-child > h5,
   > .sect5:first-child > h6 {
-    margin-top: $sp-2;
+    margin-top: vars.$sp-2;
   }
 }

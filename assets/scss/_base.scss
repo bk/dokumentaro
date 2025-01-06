@@ -1,8 +1,11 @@
 // Base element style overrides
 // stylelint-disable selector-no-type, selector-max-type, selector-max-specificity, selector-max-id
 
+@use "mixins";
+@use "vars";
+
 :root {
-  color-scheme: $color-scheme;
+  color-scheme: var(--color-scheme);
 }
 
 * {
@@ -12,15 +15,15 @@
 html {
   scroll-behavior: smooth;
 
-  @include fs-4;
+  @include mixins.fs-4;
 }
 
 body {
-  font-family: $body-font-family;
+  font-family: vars.$body-font-family;
   font-size: inherit;
-  line-height: $body-line-height;
-  color: $body-text-color;
-  background-color: $body-background-color;
+  line-height: vars.$body-line-height;
+  color: var(--body-text-color);
+  background-color: var(--body-background-color);
   overflow-wrap: break-word;
 }
 
@@ -49,8 +52,8 @@ h6,
   margin-top: 0;
   margin-bottom: 1em;
   font-weight: 500;
-  line-height: $body-heading-line-height;
-  color: $body-heading-color;
+  line-height: vars.$body-heading-line-height;
+  color: var(--body-heading-color);
 }
 
 p {
@@ -59,24 +62,25 @@ p {
 }
 
 a {
-  color: $link-color;
+  color: var(--link-color);
   text-decoration: none;
 }
 
 a:not([class]) {
   text-decoration: underline;
-  text-decoration-color: rgba($link-color, 0.2);
+  // TODO: replace with CSS variables
+  text-decoration-color: #{vars.$link-color}33; // same effect as rgba(vars.$link-color, 0.2);
   text-underline-offset: 2px;
 
   &:hover {
-    text-decoration-color: rgba($link-color, 0.45);
+    text-decoration-color: #{vars.$link-color}73; // same effect as rgba(vars.$link-color, 0.45);
   }
 }
 
 code {
-  font-family: $mono-font-family;
+  font-family: vars.$mono-font-family;
   font-size: 0.75em;
-  line-height: $body-line-height;
+  line-height: vars.$body-line-height;
 }
 
 figure,
@@ -96,8 +100,8 @@ img {
 hr {
   height: 1px;
   padding: 0;
-  margin: $sp-6 0;
-  background-color: $border-color;
+  margin: vars.$sp-6 0;
+  background-color: var(--border-color);
   border: 0;
 }
 
@@ -109,5 +113,5 @@ blockquote {
   margin-block-start: 0;
   margin-inline-start: 0;
   padding-left: 1rem;
-  border-left: 3px solid $border-color;
+  border-left: 3px solid var(--border-color);
 }

@@ -1,43 +1,45 @@
 // Utility classes for typography
+@use "../mixins";
+@use "../vars";
 
 .fs-1 {
-  @include fs-1;
+  @include mixins.fs-1;
 }
 
 .fs-2 {
-  @include fs-2;
+  @include mixins.fs-2;
 }
 
 .fs-3 {
-  @include fs-3;
+  @include mixins.fs-3;
 }
 
 .fs-4 {
-  @include fs-4;
+  @include mixins.fs-4;
 }
 
 .fs-5 {
-  @include fs-5;
+  @include mixins.fs-5;
 }
 
 .fs-6 {
-  @include fs-6;
+  @include mixins.fs-6;
 }
 
 .fs-7 {
-  @include fs-7;
+  @include mixins.fs-7;
 }
 
 .fs-8 {
-  @include fs-8;
+  @include mixins.fs-8;
 }
 
 .fs-9 {
-  @include fs-9;
+  @include mixins.fs-9;
 }
 
 .fs-10 {
-  @include fs-10;
+  @include mixins.fs-10;
 }
 
 .fw-300 {
@@ -61,11 +63,11 @@
 }
 
 .lh-default {
-  line-height: $body-line-height;
+  line-height: vars.$body-line-height;
 }
 
 .lh-tight {
-  line-height: $body-heading-line-height;
+  line-height: vars.$body-heading-line-height;
 }
 
 .ls-5 {

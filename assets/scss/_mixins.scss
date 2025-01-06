@@ -1,0 +1,171 @@
+@use "sass:color";
+@use "sass:map";
+@use "vars";
+
+// Colored button
+
+@mixin btn-color($fg, $bg) {
+  color: $fg;
+  background-color: color.adjust($bg, $lightness: -2%, $space: hsl);
+  background-image: linear-gradient(#{color.adjust($bg, $lightness: 5%)}, #{color.adjust($bg, $lightness: -2%)});
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.25),
+    0 4px 10px rgba(0, 0, 0, 0.12);
+
+  &:hover,
+  &.zeroclipboard-is-hover {
+    color: $fg;
+    background-color: color.adjust($bg, $lightness: -4%, $space: hsl);
+    background-image: linear-gradient(#{color.adjust($bg, $lightness: 2%)}, #{color.adjust($bg, $lightness: -4%)});
+  }
+
+  &:active,
+  &.selected,
+  &.zeroclipboard-is-active {
+    background-color: color.adjust($bg, $lightness: -5%, $space: hsl);
+    background-image: none;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
+  }
+
+  &.selected:hover {
+    background-color: color.adjust($bg, $lightness: -10%, $space: hsl);
+  }
+}
+
+// Media query
+
+// Media query mixin
+// Usage:
+// @include mq(md) {
+//   ..medium and up styles
+// }
+@mixin mq($name) {
+  // Retrieves the value from the key
+  $value: map.get(vars.$media-queries, $name);
+
+  // If the key exists in the map
+  @if $value {
+    // Prints a media query based on the value
+    @media (min-width: $value) {
+      @content;
+    }
+  } @else {
+    @warn "No value could be retrieved from `#{$name}`. Please make sure it is defined in `$media-queries` map.";
+  }
+}
+
+// Responsive container
+
+@mixin container {
+  padding-right: vars.$gutter-spacing-sm;
+  padding-left: vars.$gutter-spacing-sm;
+
+  @include mq(md) {
+    padding-right: vars.$gutter-spacing;
+    padding-left: vars.$gutter-spacing;
+  }
+}
+@mixin fs-1 {
+  & {
+    font-size: vars.$font-size-1 !important;
+  }
+
+  @include mq(sm) {
+    font-size: vars.$font-size-1-sm !important;
+  }
+}
+
+@mixin fs-2 {
+  & {
+    font-size: vars.$font-size-2 !important;
+  }
+
+  @include mq(sm) {
+    font-size: vars.$font-size-3 !important;
+  }
+}
+
+@mixin fs-3 {
+  & {
+    font-size: vars.$font-size-3 !important;
+  }
+
+  @include mq(sm) {
+    font-size: vars.$font-size-4 !important;
+  }
+}
+
+@mixin fs-4 {
+  & {
+    font-size: vars.$font-size-4 !important;
+  }
+
+  @include mq(sm) {
+    font-size: vars.$font-size-5 !important;
+  }
+}
+
+@mixin fs-5 {
+  & {
+    font-size: vars.$font-size-5 !important;
+  }
+
+  @include mq(sm) {
+    font-size: vars.$font-size-6 !important;
+  }
+}
+
+@mixin fs-6 {
+  & {
+    font-size: vars.$font-size-6 !important;
+  }
+
+  @include mq(sm) {
+    font-size: vars.$font-size-7 !important;
+    line-height: vars.$body-heading-line-height;
+  }
+}
+
+@mixin fs-7 {
+  & {
+    font-size: vars.$font-size-7 !important;
+    line-height: vars.$body-heading-line-height;
+  }
+
+  @include mq(sm) {
+    font-size: vars.$font-size-8 !important;
+  }
+}
+
+@mixin fs-8 {
+  & {
+    font-size: vars.$font-size-8 !important;
+    line-height: vars.$body-heading-line-height;
+  }
+
+  @include mq(sm) {
+    font-size: vars.$font-size-9 !important;
+  }
+}
+
+@mixin fs-9 {
+  & {
+    font-size: vars.$font-size-9 !important;
+    line-height: vars.$body-heading-line-height;
+  }
+
+  @include mq(sm) {
+    font-size: vars.$font-size-10 !important;
+  }
+}
+
+@mixin fs-10 {
+  & {
+    font-size: vars.$font-size-10 !important;
+    line-height: vars.$body-heading-line-height;
+  }
+
+  @include mq(sm) {
+    font-size: vars.$font-size-10-sm !important;
+  }
+}

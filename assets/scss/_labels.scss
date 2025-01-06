@@ -1,4 +1,6 @@
 // Labels (not the form kind)
+@use "mixins";
+@use "vars";
 
 // this :not() prevents a style clash with Mermaid.js's
 // diagram labels, which also use .label
@@ -7,43 +9,43 @@
 .tags > ul > li {
   display: inline-block;
   padding: 0.16em 0.56em;
-  margin-right: $sp-2;
-  margin-left: $sp-2;
-  color: $white;
+  margin-right: vars.$sp-2;
+  margin-left: vars.$sp-2;
+  color: vars.$white;
   text-transform: uppercase;
   vertical-align: middle;
-  background-color: $blue-100;
+  background-color: vars.$blue-100;
   border-radius: 12px;
-  @include fs-2;
+  @include mixins.fs-2;
   > a {
     color: inherit;
   }
 }
 
 .label-green:not(g) {
-  background-color: $green-200;
+  background-color: vars.$green-200;
   > a {
     color: inherit;
   }
 }
 
 .label-purple:not(g) {
-  background-color: $purple-100;
+  background-color: vars.$purple-100;
   > a {
     color: inherit;
   }
 }
 
 .label-red:not(g) {
-  background-color: $red-200;
+  background-color: vars.$red-200;
   > a {
     color: inherit;
   }
 }
 
 .label-yellow:not(g) {
-  color: $grey-dk-200;
-  background-color: $yellow-200;
+  color: vars.$grey-dk-200;
+  background-color: vars.$yellow-200;
   > a {
     color: inherit;
   }

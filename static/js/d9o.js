@@ -48,8 +48,6 @@ function initNav() {
   const mainHeader = document.getElementById('main-header');
   const menuButton = document.getElementById('menu-button');
 
-  disableHeadStyleSheets();
-
   d9o.addEvent(menuButton, 'click', function(e){
     e.preventDefault();
 
@@ -77,42 +75,20 @@ function initNav() {
   }
 }
 
-// The <head> element is assumed to include the following stylesheets:
-// - a <link> to /css/just-the-docs-head-nav.css,
-//             with id 'd9o-head-nav-stylesheet'
-// - a <style> containing the result of _includes/css/activation.scss.liquid.
-// To avoid relying on the order of stylesheets (which can change with HTML
-// compression, user-added JavaScript, and other side effects), stylesheets
-// are only interacted with via ID
-
-function disableHeadStyleSheets() {
-  const headNav = document.getElementById('d9o-head-nav-stylesheet');
-  if (headNav) {
-    headNav.disabled = true;
-  }
-
-  const activation = document.getElementById('d9o-nav-activation');
-  if (activation) {
-    activation.disabled = true;
-  }
-}
-
 // TODO: pagefind search stuff here or separately?
 
 // Switch theme
 
 d9o.getTheme = function() {
-  var cssFileHref = document.querySelector('[rel="stylesheet"]').getAttribute('href');
-  return cssFileHref.substring(cssFileHref.lastIndexOf('-') + 1, cssFileHref.length - 4);
+  if (document.body.classList.contains('dark')) return 'dark';
+  return 'light';
 }
 
 d9o.setTheme = function(theme) {
-  var cssFile = document.querySelector('[rel="stylesheet"]');
   document.body.classList.remove('dark');
   document.body.classList.remove('default');
   document.body.classList.remove('light');
   document.body.classList.add(theme);
-  cssFile.setAttribute('href', window.d9o_settings.prefixPath + '/css/d9o-' + theme + '.css');
 }
 
 // Note: pathname can have a trailing slash on a local jekyll server

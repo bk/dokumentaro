@@ -1,17 +1,19 @@
 // Search input and autocomplete
+@use "mixins";
+@use "vars";
 
 // Pagefind styling
 
 #search {
   --pagefind-ui-scale: .875;
-  --pagefind-ui-background: $body-background-color;
-  --pagefind-ui-text: $body-text-color;
-  --pagefind-ui-font: $body-font-family;
+  --pagefind-ui-background: var(--body-background-color);
+  --pagefind-ui-text: var(--body-text-color);
+  --pagefind-ui-font: vars.$body-font-family;
   .pagefind-ui__form {
-    background-color: $body-background-color;
+    background-color: var(--body-background-color);
   }
   .pagefind-ui__form::before {
-    background-color: $body-text-color;
+    background-color: var(--body-text-color);
   }
   .pagefind-ui__search-input {
     border: none;
@@ -22,7 +24,7 @@
     opacity: .5;
   }
   .pagefind-ui__results-area {
-    background: $body-background-color;
+    background: var(--body-background-color);
     padding: 0 1em 1em 2em;
   }
   .pagefind-ui__result {
@@ -30,7 +32,7 @@
   }
   .pagefind-ui__drawer {
     padding-bottom: 1em;
-    border-bottom: 4px solid $border-color;
+    border-bottom: 4px solid var(--border-color);
     margin-bottom: 2em;
   }
 }
@@ -41,11 +43,11 @@
   position: relative;
   z-index: 2;
   flex-grow: 1;
-  min-height: $header-height;
-  padding: $sp-2;
-  transition: padding linear #{$transition-duration * 0.5};
+  min-height: vars.$header-height;
+  padding: vars.$sp-2;
+  transition: padding linear #{vars.$transition-duration * 0.5};
 
-  @include mq(md) {
+  @include mixins.mq(md) {
     position: relative !important;
     width: auto !important;
     height: 100% !important;
@@ -55,7 +57,7 @@
 }
 
 // The overlay is only active in tablet+desktop.
-@include mq(md) {
+@include mixins.mq(md) {
   .search-overlay {
     position: fixed;
     top: 0;
@@ -66,9 +68,9 @@
     background-color: rgba(0, 0, 0, 0.3);
     opacity: 0;
     transition:
-    opacity ease $transition-duration,
-    width 0s $transition-duration,
-    height 0s $transition-duration;
+    opacity ease vars.$transition-duration,
+    width 0s vars.$transition-duration,
+    height 0s vars.$transition-duration;
   }
   .search-active {
     .search {
@@ -84,7 +86,7 @@
       height: 100%;
       opacity: 1;
       transition:
-      opacity ease $transition-duration,
+      opacity ease vars.$transition-duration,
       width 0s,
       height 0s;
     }

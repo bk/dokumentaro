@@ -1,5 +1,7 @@
 // Main nav, breadcrumb, etc...
 // stylelint-disable selector-no-type, max-nesting-depth, selector-max-compound-selectors, selector-max-type, selector-max-specificity
+@use "mixins";
+@use "vars";
 
 .nav-list {
   padding: 0;
@@ -11,41 +13,41 @@
     position: relative;
     margin: 0;
 
-    @include fs-4;
+    @include mixins.fs-4;
 
-    @include mq(md) {
-      @include fs-3;
+    @include mixins.mq(md) {
+      @include mixins.fs-3;
     }
 
     .nav-list-link {
       display: block;
-      min-height: $nav-list-item-height-sm;
-      padding-top: $sp-1;
-      padding-bottom: $sp-1;
-      line-height: #{$nav-list-item-height-sm - 2 * $sp-1};
-      @if $nav-list-expander-right {
-        padding-right: $nav-list-item-height-sm;
-        padding-left: $gutter-spacing-sm;
+      min-height: vars.$nav-list-item-height-sm;
+      padding-top: vars.$sp-1;
+      padding-bottom: vars.$sp-1;
+      line-height: #{vars.$nav-list-item-height-sm - 2 * vars.$sp-1};
+      @if vars.$nav-list-expander-right {
+        padding-right: vars.$nav-list-item-height-sm;
+        padding-left: vars.$gutter-spacing-sm;
       } @else {
-        padding-right: $gutter-spacing-sm;
-        padding-left: $nav-list-item-height-sm;
+        padding-right: vars.$gutter-spacing-sm;
+        padding-left: vars.$nav-list-item-height-sm;
       }
 
-      @include mq(md) {
-        min-height: $nav-list-item-height;
-        line-height: #{$nav-list-item-height - 2 * $sp-1};
-        @if $nav-list-expander-right {
-          padding-right: $nav-list-item-height;
-          padding-left: $gutter-spacing;
+      @include mixins.mq(md) {
+        min-height: vars.$nav-list-item-height;
+        line-height: #{vars.$nav-list-item-height - 2 * vars.$sp-1};
+        @if vars.$nav-list-expander-right {
+          padding-right: vars.$nav-list-item-height;
+          padding-left: vars.$gutter-spacing;
         } @else {
-          padding-right: $gutter-spacing;
-          padding-left: $nav-list-item-height;
+          padding-right: vars.$gutter-spacing;
+          padding-left: vars.$nav-list-item-height;
         }
       }
 
       &.external > svg {
-        width: $sp-4;
-        height: $sp-4;
+        width: vars.$sp-4;
+        height: vars.$sp-4;
         vertical-align: text-bottom;
       }
 
@@ -58,39 +60,39 @@
       &.active {
         background-image: linear-gradient(
           -90deg,
-          rgba($feedback-color, 1) 0%,
-          rgba($feedback-color, 0.8) 80%,
-          rgba($feedback-color, 0) 100%
+          var(--feedback-color) 0%,
+          var(--feedback-color-lighter) 80%,
+          transparent 100%
         );
       }
     }
 
     .nav-list-expander {
       position: absolute;
-      @if $nav-list-expander-right {
+      @if vars.$nav-list-expander-right {
         right: 0;
       }
 
-      width: $nav-list-item-height-sm;
-      height: $nav-list-item-height-sm;
-      padding: #{$nav-list-item-height-sm * 0.25};
-      color: $link-color;
+      width: vars.$nav-list-item-height-sm;
+      height: vars.$nav-list-item-height-sm;
+      padding: #{vars.$nav-list-item-height-sm * 0.25};
+      color: var(--link-color);
 
-      @include mq(md) {
-        width: $nav-list-item-height;
-        height: $nav-list-item-height;
-        padding: #{$nav-list-item-height * 0.25};
+      @include mixins.mq(md) {
+        width: vars.$nav-list-item-height;
+        height: vars.$nav-list-item-height;
+        padding: #{vars.$nav-list-item-height * 0.25};
       }
 
       &:hover {
         background-image: linear-gradient(
           -90deg,
-          rgba($feedback-color, 1) 0%,
-          rgba($feedback-color, 0.8) 100%
+          var(--feedback-color) 0%,
+          var(--feedback-color-lighter) 100%
         );
       }
 
-      @if $nav-list-expander-right {
+      @if vars.$nav-list-expander-right {
         svg {
           transform: rotate(90deg);
         }
@@ -99,25 +101,25 @@
 
     > .nav-list {
       display: none;
-      padding-left: $sp-3;
+      padding-left: vars.$sp-3;
       list-style: none;
 
       .nav-list-item {
         position: relative;
 
         .nav-list-link {
-          color: $nav-child-link-color;
+          color: var(--nav-child-link-color);
         }
 
         .nav-list-expander {
-          color: $nav-child-link-color;
+          color: var(--nav-child-link-color);
         }
       }
     }
 
     &.active {
       > .nav-list-expander svg {
-        @if $nav-list-expander-right {
+        @if vars.$nav-list-expander-right {
           transform: rotate(-90deg);
         } @else {
           transform: rotate(90deg);
@@ -132,16 +134,16 @@
 }
 
 .nav-category {
-  padding: $sp-2 $gutter-spacing-sm;
+  padding: vars.$sp-2 vars.$gutter-spacing-sm;
   font-weight: 600;
   text-align: start;
   text-transform: uppercase;
-  border-bottom: $border $border-color;
-  @include fs-2;
+  border-bottom: vars.$border var(--border-color);
+  @include mixins.fs-2;
 
-  @include mq(md) {
-    padding: $sp-2 $gutter-spacing;
-    margin-top: $gutter-spacing-sm;
+  @include mixins.mq(md) {
+    padding: vars.$sp-2 vars.$gutter-spacing;
+    margin-top: vars.$gutter-spacing-sm;
     text-align: start;
 
     &:first-child {
@@ -159,11 +161,11 @@
 
       > .nav-list-item {
         > .nav-list-link {
-          color: $link-color;
+          color: var(--link-color);
         }
 
         > .nav-list-expander {
-          color: $link-color;
+          color: var(--link-color);
         }
       }
     }
@@ -175,19 +177,19 @@
 .aux-nav {
   height: 100%;
   overflow-x: auto;
-  @include fs-2;
+  @include mixins.fs-2;
 
   .aux-nav-list {
     display: flex;
     height: 100%;
-    @inclued mq(md) {
-      height: $header-height;
-    }
     padding: 0;
     margin: 0;
     list-style: none;
     align-items: center;
     justify-content: space-evenly;
+    @include mixins.mq(md) {
+      height: vars.$header-height;
+    }
   }
 
   .aux-nav-list-item {
@@ -200,28 +202,28 @@
     }
   }
 
-  @include mq(md) {
-    padding-right: $gutter-spacing-sm;
+  @include mixins.mq(md) {
+    padding-right: vars.$gutter-spacing-sm;
   }
 }
 
 // Breadcrumb nav
 
 .breadcrumb-nav {
-  @include mq(md) {
-    margin-top: -$sp-4;
+  @include mixins.mq(md) {
+    margin-top: -#{vars.$sp-4};
   }
 }
 
 .breadcrumb-nav-list {
   padding-left: 0;
-  margin-bottom: $sp-3;
+  margin-bottom: vars.$sp-3;
   list-style: none;
 }
 
 .breadcrumb-nav-list-item {
   display: table-cell;
-  @include fs-2;
+  @include mixins.fs-2;
 
   &::before {
     display: none;
@@ -229,9 +231,9 @@
 
   &::after {
     display: inline-block;
-    margin-right: $sp-2;
-    margin-left: $sp-2;
-    color: $grey-dk-000;
+    margin-right: vars.$sp-2;
+    margin-left: vars.$sp-2;
+    color: vars.$grey-dk-000;
     content: "/";
   }
 
@@ -251,14 +253,14 @@
   justify-content: center;
   align-items: center;
   a:hover svg.icon {
-    color: $body-text-color;
+    color: var(--body-text-color);
   }
   svg {
     margin: 0 5px;
     height: 20px;
     width: 20px;
   }
-  @include mq(md) {
-    height: $header-height;
+  @include mixins.mq(md) {
+    height: vars.$header-height;
   }
 }

@@ -70,3 +70,4 @@ markdown_extension_configs:
     toc_depth: "2-3"
 cleanup_commands:
   - "npx -y pagefind --site htdocs"
+use_dart_sass: true

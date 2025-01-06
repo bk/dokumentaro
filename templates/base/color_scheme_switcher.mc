@@ -16,18 +16,11 @@
     const switch_moon_a = switch_moon.querySelector('a');
     const switch_sun = document.getElementById('switch-sun');
     const switch_sun_a = switch_sun.querySelector('a');
-    const schemes = {
-      light: "${ '/css/d9o-light.css' | fingerprint,url }",
-      dark: "${ '/css/d9o-dark.css' | fingerprint,url }"
-    };
     const pick_scheme = function (theme, save) {
-      if (! schemes[theme]) return;
-      let cssfile = document.querySelector('[rel="stylesheet"]');
       document.body.classList.remove('dark');
       document.body.classList.remove('default');
       document.body.classList.remove('light');
       document.body.classList.add(theme);
-      cssfile.setAttribute('href', schemes[theme]);
       if (theme=='dark') {
         switch_moon.style.display = 'none';
         switch_sun.style.display = 'block';

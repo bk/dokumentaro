@@ -25,7 +25,7 @@ def _tocfilter(s):
 <html lang="${ site.lang or 'en' }">
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="${ '/css/d9o-{}.css'.format(site.color_scheme or 'default') | fingerprint,url }">
+  <link rel="stylesheet" href="${ '/css/d9o.css' | fingerprint,url }">
   <%include file="d9o_javascript.mc" />
   <%include file="ga_tracking.mc" />
   % if site.search_enabled:
