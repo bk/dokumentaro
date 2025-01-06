@@ -173,7 +173,7 @@ Currently, tags are [not supported](https://github.com/just-the-docs/just-the-do
 
 ## Color scheme
 
-The color scheme setting supports "light" (or "default") and "dark". User-defined colorschemes are possible by adding SCSS files in `assets/scss` – see [here](../customization/#custom-schemes) for details.
+The color scheme setting supports "light" (or "default") and "dark". User-defined color schemes are possible by defining CSS variables scoped to a class of `body` – see [here](../customization/#custom-schemes) for details.
 
 ```yaml
 site:

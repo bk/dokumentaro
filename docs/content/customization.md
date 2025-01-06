@@ -26,12 +26,31 @@ It can be disabled by setting `site.color_scheme_switcher` to false.
 
 ### Define a custom scheme
 
-You can add custom schemes. This involves
+You can add custom schemes. This involves adding a set of CSS variables scoped to a `body` class with the same name as the new scheme. For reference, here is the SCSS code for the dark color scheme (in `_vars.scss`):
 
-1. Creating a new file containing color-related SCSS variables in the directory `assets/scss/color_schemes`. The filename should start with an underscore. Let's call it `_mycolors.scss`.
-2. Creating a new appropriately named filei in `assets/scss`, e.g. `d9o-mycolors.scss`. The contents should be similar to that of `d9o-light.scss` and `d9o-dark.scss`, except that you `@import "color_schemes/mycolors"` instead of `color_schemes/light` or `color_schems/dark`.
+```scss
+body.dark {
+  --base-button-color: #{$grey-dk-250};
+  --body-background-color: #{$blackish};
+  --body-heading-color: #{$grey-lt-000};
+  --body-text-color: #{$grey-lt-300};
+  --border-color: #{$grey-dk-200};
+  --btn-hover-color: #{color.adjust($blue-000, $lightness: -2%, $space: hsl)};
+  --btn-outline-hover-color: #{color.adjust($blue-000, $lightness: -4%, $space: hsl)};
+  --btn-primary-color: #{$blue-200};
+  --feedback-color: #{color.adjust($grey-dk-300, $lightness: -3%, $space: hsl)};
+  --feedback-color-lighter: #{rgba(color.adjust($grey-dk-300, $lightness: -3%, $space: hsl), 0.8)};
+  --link-color: #{$blue-000};
+  --nav-child-link-color: #{$grey-dk-000};
+  --sidebar-color: #{$grey-dk-300};
+  --table-background-color: #{$grey-dk-250};
+  --table-td-border-bottom-color: rgba($grey-dk-200, 0.5);
+}
+```
 
-Aside from the variables referenced in the two built-in color schemes you might also want to override some of the variables in `assets/scss/support/_variables.scss`.
+The most natural place for the code for a custom color scheme is probably in the SCSS file `custom/_setup.scss`.
+
+You may also wish to add settings for `.btn-primary` in the new color scheme to this file as well - see `_buttons.scss` for the corresponding setting for the dark theme.
 
 ### Use a custom scheme
 
