@@ -2,7 +2,6 @@
 @use "sass:meta";
 @use "mixins";
 @use "vars";
-@use "custom/site-vars";
 
 .side-bar {
   z-index: 0;
@@ -148,11 +147,11 @@
   }
 }
 
-@if meta.global-variable-exists(logo, $module: site-vars) {
+@if meta.global-variable-exists(logo, $module: vars) {
   .site-logo {
     width: 100%;
     height: 100%;
-    background-image: url(site-vars.$logo);
+    background-image: url(vars.$logo);
     background-repeat: no-repeat;
     background-position: left center;
     background-size: contain;
