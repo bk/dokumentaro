@@ -7,13 +7,8 @@ tags:
 ---
 
 # Buttons
-{: .no_toc }
 
-## Table of contents
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
+[TOC]
 
 ---
 
@@ -22,11 +17,11 @@ tags:
 ### Links that look like buttons
 
 <div class="code-example" markdown="1">
-[Link button](https://just-the-docs.com){: .btn }
+[Link button](https://dokumentaro.baldr.net){: .btn }
 
-[Link button](https://just-the-docs.com){: .btn .btn-purple }
-[Link button](https://just-the-docs.com){: .btn .btn-blue }
-[Link button](https://just-the-docs.com){: .btn .btn-green }
+[Link button](https://dokumentaro.baldr.net){: .btn .btn-purple }
+[Link button](https://dokumentaro.baldr.net){: .btn .btn-blue }
+[Link button](https://dokumentaro.baldr.net){: .btn .btn-green }
 
 [Link button](https://dokumentaro.baldr.net){: .btn .btn-outline }
 </div>
@@ -56,42 +51,42 @@ GitHub Flavored Markdown does not support the `button` element, so you'll have t
 
 ### Button size
 
-Wrap the button in a container that uses the [font-size utility classes]({% link docs/utilities/typography.md %}) to scale buttons:
+Wrap the button in a container that uses the [font-size utility classes](../../utilities/typography/) to scale buttons:
 
 <div class="code-example" markdown="1">
 <span class="fs-6">
-[Big ass button](https://just-the-docs.com){: .btn }
+[Big ass button](https://dokumentaro.baldr.net){: .btn }
 </span>
 
 <span class="fs-3">
-[Tiny ass button](https://just-the-docs.com){: .btn }
+[Tiny ass button](https://dokumentaro.baldr.net){: .btn }
 </span>
 </div>
 ```markdown
 <span class="fs-8">
-[Link button](https://just-the-docs.com){: .btn }
+[Link button](https://dokumentaro.baldr.net){: .btn }
 </span>
 
 <span class="fs-3">
-[Tiny ass button](https://just-the-docs.com){: .btn }
+[Tiny ass button](https://dokumentaro.baldr.net){: .btn }
 </span>
 ```
 
 ### Spacing between buttons
 
-Use the [margin utility classes]({% link docs/utilities/layout.md %}#spacing) to add spacing between two buttons in the same block.
+Use the [margin utility classes](../../utilities/layout/#spacing) to add spacing between two buttons in the same block.
 
 <div class="code-example" markdown="1">
-[Button with space](https://just-the-docs.com){: .btn .btn-purple .mr-2 }
-[Button](https://just-the-docs.com){: .btn .btn-blue }
+[Button with space](https://dokumentaro.baldr.net){: .btn .btn-purple .mr-2 }
+[Button](https://dokumentaro.baldr.net){: .btn .btn-blue }
 
-[Button with more space](https://just-the-docs.com){: .btn .btn-green .mr-4 }
-[Button](https://just-the-docs.com){: .btn .btn-blue }
+[Button with more space](https://dokumentaro.baldr.net){: .btn .btn-green .mr-4 }
+[Button](https://dokumentaro.baldr.net){: .btn .btn-blue }
 </div>
 ```markdown
-[Button with space](https://just-the-docs.com){: .btn .btn-purple .mr-2 }
-[Button](https://just-the-docs.com){: .btn .btn-blue }
+[Button with space](https://dokumentaro.baldr.net){: .btn .btn-purple .mr-2 }
+[Button](https://dokumentaro.baldr.net){: .btn .btn-blue }
 
-[Button with more space](https://just-the-docs.com){: .btn .btn-green .mr-4 }
-[Button](https://just-the-docs.com){: .btn .btn-blue }
+[Button with more space](https://dokumentaro.baldr.net){: .btn .btn-green .mr-4 }
+[Button](https://dokumentaro.baldr.net){: .btn .btn-blue }
 ```

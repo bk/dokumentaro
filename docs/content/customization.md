@@ -26,7 +26,7 @@ It can be disabled by setting `site.color_scheme_switcher` to false.
 
 ### Define a custom scheme
 
-You can add custom schemes. This involves adding a set of CSS variables scoped to a `body` class with the same name as the new scheme. For reference, here is the SCSS code for the dark color scheme (in `_vars.scss`):
+You can add custom schemes. This involves adding a set of CSS variables scoped to a `body` class with the same name as the new scheme. For reference, here is the SCSS code for the dark color scheme (from `_vars.scss`):
 
 ```
 body.dark {
@@ -48,9 +48,27 @@ body.dark {
 }
 ```
 
-The most natural place for the code for a custom color scheme is probably in the SCSS file `custom/_setup.scss`.
+You may also wish to add settings for `.btn-primary` in the new color scheme code as well - see `_buttons.scss` for the corresponding setting for the dark theme.
 
-You may also wish to add settings for `.btn-primary` in the new color scheme to this file as well - see `_buttons.scss` for the corresponding setting for the dark theme.
+The most natural way to define the theme is by overriding `assets/scss/d9o.scss` with content such as the following:
+
+```scss
+@use "vars";
+@use "mixins";
+// Custom variables go here
+
+@use "all";
+
+body.myschema {
+  --base-button-color: #{vars.$grey-lt-100};
+  // ... The other CSS variables go here ...
+  .btn-primary {
+    @include mixins.btn-color(vars.$white, $my-primary-color);
+  }
+}
+```
+
+For modularity, you can put your changes into separate files and `@use` them in your custom version of `d9o.scss`.
 
 ### Use a custom scheme
 
@@ -63,16 +81,45 @@ site:
 
 ## Override SCSS
 
-You can override or extend Dokumentaro's SCSS rules at three different stages by creating files in `assets/scss/custom/`:
+Dokumentaro's SCSS makes use of the Dart Sass [module system](https://sass-lang.com/blog/the-module-system-is-launched/).
 
-- `_site_vars.scss`: This file is imported at the very start.
-- `_setup.scss`: This file is imported after variables and mixins have been loaded, but before the color scheme settings, and thus before any CSS classes have been defined.
-- `_custom`: This file is imported at the end. New CSS classes should be placed here.
+As seen above, the easiest way to override or extend Dokumentaro's SCSS is to create a new file named `d9o.scss` in your project's `assets/scss/` directory. It should contain the line `@use "all";`, with your customizations either above or below (or both). If you intend to change variable settings, you should do that before the `@use "all";` line, while any new class definitions should be placed below. A simple example:
 
+
+```scss
+@use "vars" with (
+  $header-height: 4rem,
+  $content-width: 55rem,
+  $nav-width: 18rem
+);
+@use "mixins";
+
+@use "all";
+
+.shout-louder {
+  width: 90%;
+  max-width: 30rem;
+  padding: 1rem;
+  background: var(--feedback-color);
+  border: 2px solid var(--border-color);
+  margin: 2rem auto;
+  @include mixins.fs-5;
+  @include mixins.mq(md) {
+     @include mixins.fs-6;
+  }
+  .title {
+     margin: 0 0 1em 0;
+     @include mixins.fs-8;
+     @include mixins.mq(md) {
+       @include mixins.fs-10;
+     }
+  }
+}
+```
 
 ### Custom TOC Heading
 
-The file `templates/base/toc_heading_custom.mc` can be overridden to change the heading for the links to child pages shown below the main body of the page. By default, this is *More information*.
+The file `templates/base/toc_heading_custom.mc` can be overridden to change the heading for the links to child pages shown below the main body of the page. By default, this text is *More information*.
 
 ### Custom Footer
 

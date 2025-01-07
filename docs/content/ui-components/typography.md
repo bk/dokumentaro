@@ -7,13 +7,8 @@ tags:
 ---
 
 # Typography
-{: .no_toc }
 
-## Table of contents
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
+[TOC]
 
 ---
 
@@ -98,12 +93,12 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 <div class="code-example" markdown="1">
 Text can be **bold**, _italic_, or ~~strikethrough~~.
 
-[Link to another page]({{site.baseurl}}/).
+[Link to another page](/).
 </div>
 ```markdown
 Text can be **bold**, _italic_, or ~~strikethrough~~.
 
-[Link to another page]({{site.baseurl}}/).
+[Link to another page](/).
 ```
 
 ---
@@ -112,4 +107,4 @@ Text can be **bold**, _italic_, or ~~strikethrough~~.
 
 There are a number of specific typographic CSS classes that allow you to override default styling for font size, font weight, line height, and capitalization.
 
-[View typography utilities]({% link docs/utilities/typography.md %}){: .btn .btn-outline }
+[View typography utilities](../../utilities/typography/){: .btn .btn-outline }

@@ -17,12 +17,14 @@ Dokumentaro supports several configuration parameters that can be defined in you
 
 ## Site logo
 
-Set a url to a logo that will be displayed instead of the title.
+Set a URL to a logo that will be displayed instead of the title. By default, the logo is assumed to be suitable for both light and dark color schemes. If you need two different versions of the logo, you must additionally specify `site.logo_reversed` for the dark color scheme.
 
 ```yaml
 site:
   logo: "/images/dokumentaro.png"
+  logo_reversed: "/images/dokumentaro-white.png"
 ```
+
 
 ## Site favicon
 
