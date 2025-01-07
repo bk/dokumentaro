@@ -147,15 +147,13 @@
   }
 }
 
-@if meta.global-variable-exists(logo, $module: vars) {
-  .site-logo {
+.site-logo {
     width: 100%;
     height: 100%;
-    background-image: url(vars.$logo);
+    // NOTE: background-image will be set in the template with the value of site.logo
     background-repeat: no-repeat;
     background-position: left center;
     background-size: contain;
-  }
 }
 
 .site-button {
